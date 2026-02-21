@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Natalie Kainz - Journalist & Producer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    body {
+      padding-top: 2rem;
+    }
+    hgroup h2 {
+      margin-bottom: 0.25rem;
+    }
+    hgroup h3 {
+      color: #6c757d;
+      font-weight: 400;
+    }
+    figure img {
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    section {
+      padding: 4rem 0;
+    }
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .portfolio-item {
+      padding: 1.5rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .portfolio-item h4 {
+      margin-top: 0;
+      color: #333;
+    }
+    .portfolio-publication {
+      display: inline-block;
+      background-color: #f0f0f0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 0.75rem;
+    }
+    .portfolio-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #666;
+      margin: 1rem 0;
+    }
+    .portfolio-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .portfolio-link:hover {
+      text-decoration: underline;
+    }
+    .category-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #e8f4f8;
+      border-left: 4px solid #0066cc;
+      font-weight: 600;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>Natalie Kainz</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact" role="button">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="grid">
+      <section id="about">
+        <hgroup>
+          <h2>Hello, I'm Natalie Kainz</h2>
+          <h3>Journalist • Producer • Storyteller</h3>
+        </hgroup>
+        <p>
+          I am an Associate Producer at NBC News' <em>Top Story with Tom Llamas</em>, passionate about 
+          delivering compelling journalism that explores international affairs, culture, and technology. 
+          With reporting experience across Hong Kong and the United States, I bring a global perspective 
+          to every story I tell.
+        </p>
+
+        <p>
+          I graduated from Yale University with honors in Political Science and served as Multimedia Managing 
+          Editor of the Yale Daily News (2021-2022). My journalism background spans CNN International Productions, 
+          NBC News, The South China Morning Post, Television Broadcasts Limited, and the New Haven Independent.
+        </p>
+
+        <h3>My Philosophy</h3>
+        <p>
+          I believe great journalism is about clarity, empathy, and purpose. Every story begins with curiosity 
+          and deep research, and ends with a refined narrative that informs and resonates with audiences. 
+          I'm committed to amplifying voices that matter and exploring the stories that shape our world.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <section id="work">
+    <div class="container">
+      <hgroup>
+        <h2>Selected Work</h2>
+        <h3>A selection of my recent journalism and producing</h3>
+      </hgroup>
+
+      <!-- NBC NEWS PRODUCING -->
+      <div class="category-label">NBC News - Top Story with Tom Llamas</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Nashville Museum Returns 500-Year-Old Mexican Artifact Collection</h4>
+          <p class="portfolio-description">
+            I pitched this story and traveled to Nashville for the shoot. I lined up interviewees, 
+            planned the production, operated cameras, wrote the accompanying article, and helped 
+            script and produce the package. It aired across 3 shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>AI-Generated Band Gains 700K+ Monthly Spotify Listeners</h4>
+          <p class="portfolio-description">
+            I pitched this story and booked all guest interviews based on my reporting. I wrote the 
+            accompanying article, helped script and produce the package. The story re-aired across 
+            multiple shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Fashion Resellers Use High-Tech Tools to Combat Designer Dupes</h4>
+          <p class="portfolio-description">
+            I pitched this story and produced the shoot in New Jersey. I lined up interviews, 
+            planned logistics, and field produced. It aired across 3 shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Demand for Mocktails Rising as Consumers Consider Alcohol Implications</h4>
+          <p class="portfolio-description">
+            I pitched this story and produced the New York shoot. I lined up interviewees, conducted 
+            MOS, operated cameras, wrote the script, and helped edit the package. 
+            It aired across 3 shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Christie's AI Art Auction Draws Big-Money Bids—and Thousands of Protest Signatures</h4>
+          <p class="portfolio-description">
+            I served as coordinating producer for the Brooklyn shoot. I wrote the script and Q&A 
+            read by Valerie Castro, and helped collect imagery and footage used in the piece. 
+            It aired across 3 shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Teen Wakes from Coma After Falling in Ravine and Getting Stuck for Three Days</h4>
+          <p class="portfolio-description">
+            I wrote the script, Q&A, and anchor intro for this day-turn package and booked the interviews.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>New York Artist Creates Website to Capture Selfies Using Traffic Cameras</h4>
+          <p class="portfolio-description">
+            I pitched this story and produced the Brooklyn shoot. I lined up interviewees, conducted MOS, 
+            operated cameras, and helped write and edit the package. It aired across 3 shows on NBC News Now.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Right to Repair Revolution: Farmers Challenge John Deere's Control Over Equipment</h4>
+          <p class="portfolio-description">
+            I pitched this story and traveled to Missouri for the shoot. I found and pre-interviewed 
+            sources, organized logistics, operated cameras, and helped script, edit, and write the 
+            digital article accompanying the piece.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Zipper Company Upgrading the Zipper After 100 Years</h4>
+          <p class="portfolio-description">
+            I produced this story about a zipper company's innovation and upgrade after a century. 
+            It aired on NBC News Now.
+          </p>
+          <a href="https://www.youtube.com/watch?v=eMXvDB5Ut9g" target="_blank" class="portfolio-link">Watch on YouTube →</a>
+        </div>
+      </div>
+
+      <!-- CNN INTERNATIONAL PRODUCTIONS -->
+      <div class="category-label" style="margin-top: 3rem;">CNN International Productions</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE | Going Green</div>
+          <h4>Meet Gen-Z Climate Activist Melati Wijsen</h4>
+          <p class="portfolio-description">
+            I produced a 5-minute feature about young climate activist Melati Wijsen for CNN International's 
+            <em>Going Green</em> show. I wrote the script, selected soundbites and B-roll, and directed the edit.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE | African Voices Changemakers</div>
+          <h4>From Child Soldier to Boxing Champion: Mohamed Kayongo</h4>
+          <p class="portfolio-description">
+            I produced the first 11-minute block of this feature on African boxers for CNN International's 
+            <em>African Voices Changemakers</em>. I wrote the script, selected soundbites and footage, 
+            and saw the story through to final edits.
+          </p>
+        </div>
+      </div>
+
+      <!-- TELEVISION BROADCASTS LIMITED (HONG KONG) -->
+      <div class="category-label" style="margin-top: 3rem;">Television Broadcasts Limited (Hong Kong)</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>New COVID-19 Treatment Centre at AsiaWorld-Expo Opening</h4>
+          <p class="portfolio-description">
+            I sourced this story, conducted interviews, wrote the script, selected soundbites, 
+            provided voiceover and performed the standup.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>Ocean Park Teams Up with Hong Kong Guide Dogs Association to Breed Puppies</h4>
+          <p class="portfolio-description">
+            I sourced this story, conducted interviews, wrote the script, selected soundbites, 
+            provided voiceover and performed the standup.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>SARG to Test All Domestic Helpers in Boarding Facilities</h4>
+          <p class="portfolio-description">
+            I sourced this story, conducted interviews, wrote the script, selected soundbites, 
+            provided voiceover and performed the standup.
+          </p>
+        </div>
+      </div>
+
+      <!-- NBC NIGHTLY NEWS: KIDS EDITION -->
+      <div class="category-label" style="margin-top: 3rem;">NBC Nightly News: Kids Edition</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE</div>
+          <h4>It's The Great Pumpkin!</h4>
+          <p class="portfolio-description">
+            I produced this 2-minute story about the U.S.' heaviest pumpkin. I interviewed record holder 
+            Travis Geinger over Zoom, selected soundbites, sourced visuals, and wrote the script.
+          </p>
+        </div>
+      </div>
+
+      <!-- YALE DAILY NEWS -->
+      <div class="category-label" style="margin-top: 3rem;">Yale Daily News</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">PROFILE VIDEO</div>
+          <h4>Wendy Hamilton's "No Frills" Response to Greed in the Elm City</h4>
+          <p class="portfolio-description">
+            I produced, shot, and edited this video to accompany a profile I wrote about a former 
+            mayoral candidate in New Haven. I conducted all interviews.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">PROTEST VIDEO</div>
+          <h4>Unions Call for Respect from Yale at Car Caravan Rally</h4>
+          <p class="portfolio-description">
+            I produced this video about a protest led by local workers' unions against the Yale Administration. 
+            I pitched and planned the project, conducted interviews, shot footage, edited it together, and piloted the drone.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">PROTEST VIDEO</div>
+          <h4>New Haven Students Protest Police Violence</h4>
+          <p class="portfolio-description">
+            I produced this video about a student-led Black Lives Matter protest. I pitched and planned 
+            the project, conducted interviews, shot footage, and edited it together.
+          </p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-publication">FEATURE VIDEO</div>
+          <h4>Community Spirit Helps Local Asian Stores Survive Pandemic</h4>
+          <p class="portfolio-description">
+            I produced this video to accompany an article I wrote about local Asian grocery stores in New Haven. 
+            I produced, shot, and edited the video, and conducted all interviews.
+          </p>
+        </div>
+      </div>
+
+      <!-- BROADCAST JOURNALISM INTERNSHIP -->
+      <div class="category-label" style="margin-top: 3rem;">Broadcast Journalism Internship</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-publication">INTERNSHIP | Television Broadcasts Limited</div>
+          <h4>Summer 2020 - English News Channel</h4>
+          <p class="portfolio-description">
+            During my internship at Hong Kong's largest television news network, I reported, wrote scripts, 
+            and presented stories that aired on the nightly news at 7:30 pm, covering the pandemic, politics, 
+            and feature stories.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Get in touch">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>Let's Connect</h2>
+          <h3>Reach out to discuss story ideas, collaborations, or opportunities</h3>
+        </hgroup>
+        <p>
+          I'm always interested in connecting with fellow journalists, editors, and storytellers. 
+          Feel free to reach out via LinkedIn or email.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small>
+      <a href="https://www.linkedin.com/in/natalie-kainz-88b3b7133/" target="_blank">LinkedIn</a> • 
+      <a href="https://nataliemargaretkainz.wixsite.com/mysite" target="_blank">Full Portfolio</a>
+    </small>
+  </footer>
+
+</body>
+</html>
