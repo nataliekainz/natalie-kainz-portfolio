@@ -1,14 +1,1079 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Natalie Kainz Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natalie Kainz | Multimedia Journalist & Producer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1714;
+      --warm-gray: #7a7068;
+      --accent: #b85c38;
+      --accent-light: #d4845f;
+      --rule: #d4cdc3;
+      --card-bg: #fdfaf5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .hero-text {}
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-cta:hover { color: var(--accent); }
+
+    .hero-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+      margin: 60px 0 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-bottom: 8px;
+    }
+
+    .hero-stat-item {
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      margin-top: 4px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .container + .container {
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── WORK GRID ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .work-card {
+      background: var(--card-bg);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .work-card:hover { background: #fff; }
+
+    .work-card-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #e8e2d8;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .work-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .work-card:hover .work-card-thumb img { transform: scale(1.04); }
+
+    .work-card-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e8e2d8, #d4cdc3);
+    }
+
+    .thumb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+
+    .work-card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-card-outlet {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .work-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .work-card-desc {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .work-card-arrow {
+      margin-top: 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .about-photo {
+      position: relative;
+    }
+
+    .about-photo img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-photo-frame {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: -16px;
+      bottom: -16px;
+      border: 2px solid var(--accent);
+      z-index: -1;
+    }
+
+    .resume-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 14px 24px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .resume-link:hover { background: var(--accent); }
+
+    /* ── EXPERIENCE ── */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .exp-item:first-child { border-top: 1px solid var(--rule); }
+
+    .exp-meta {
+      padding-top: 4px;
+    }
+
+    .exp-dates {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .exp-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .exp-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .exp-desc {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .edu-card {
+      background: var(--card-bg);
+      padding: 40px;
+    }
+
+    .edu-years {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+
+    .edu-notes {
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ── SHOWREEL ── */
+    .showreel-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .showreel-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .showreel-note {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .contact-heading em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-sub {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .contact-email:hover { color: var(--accent); }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .social-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 10px 18px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .social-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    .contact-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-style: italic;
+      color: var(--warm-gray);
+      line-height: 1.3;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,240,232,0.4);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text { animation: fadeUp 0.7s ease both; }
+    .hero-stats { animation: fadeUp 0.7s 0.15s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 110px 24px 60px;
+      }
+
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+
+      .container { padding: 60px 24px; }
+
+      .work-grid { grid-template-columns: 1fr; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { order: -1; max-width: 320px; }
+
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+
+      .edu-grid { grid-template-columns: 1fr; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-name { font-size: 2.6rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <h2>Zipper Company Story</h2>
-    <p>My journey at Zipper Company has been one of collaboration and creativity. From developing innovative designs to managing successful production processes, I have grown immensely.</p>
-    <p>You can watch a detailed story about our projects here: <a href="https://www.youtube.com/watch?v=eMXvDB5Ut9g">Zipper Company Story on YouTube</a></p>
-    <h2>Projects</h2>
-    <p>Here you'll find some of my projects...</p>
-    <!-- Add more sections as needed -->
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="nav-logo">Natalie Kainz</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#showreel">Showreel</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="top">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
+        <h1 class="hero-name">Natalie<br><em>Kainz</em></h1>
+        <p class="hero-bio">Associate Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, culture, and technology — from New York and Hong Kong.</p>
+        <a href="#work" class="hero-cta">View My Work →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">NBC</div>
+          <div class="hero-stat-label">Top Story with Tom Llamas — Current Role</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">Yale</div>
+          <div class="hero-stat-label">B.A. Political Science, Yale Journalism Initiative Scholar</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-number">NYC</div>
+          <div class="hero-stat-label">Based in New York, originally from Hong Kong</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Selected Work</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="work-grid">
+
+        <!-- 1 -->
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Investigative</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Investigative Feature</div>
+            <div class="work-card-title">How NDAs keep AI data center details hidden from Americans</div>
+            <div class="work-card-desc">A three-month investigation involving 50 public records requests across 15 states, analyzing how tech companies use secrecy agreements with local governments.</div>
+            <div class="work-card-arrow">Read Story →</div>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a class="work-card" href="https://www.youtube.com/watch?v=eMXvDB5Ut9g" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Feature</div>
+            <div class="work-card-title">YKK upgrades the zipper after a century of consistency</div>
+            <div class="work-card-desc">A feature exploring the iconic zipper company's first major reinvention in over 100 years.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a class="work-card" href="https://www.nbcnews.com/news/latino/nashville-parthenon-museum-returns-mexican-artifacts-rcna163296" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_53fa82ae285949d2b52baed7bf042347~mv2.jpg/v1/fill/w_367,h_206,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/nashville_JPG.jpg" alt="Nashville Parthenon story" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">Nashville museum returns 500-year-old Mexican artifact collection 'where it belongs'</div>
+            <div class="work-card-desc">Pitched, traveled to Nashville, lined up interviewees, camera operated, wrote the digital article. Aired across 3 shows on NBC News Now.</div>
+            <div class="work-card-arrow">Read Story →</div>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a class="work-card" href="https://youtu.be/ERyFUyfmXzQ?si=n32wqbWbUCmBK0gv" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">Seemingly AI-generated band gains 700K+ monthly Spotify listeners</div>
+            <div class="work-card-desc">Pitched the story, booked all guests based on original reporting, wrote the digital article, and helped script the package. Re-aired across multiple NBC News Now shows.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 5 -->
+        <a class="work-card" href="https://www.youtube.com/watch?v=uV2hS2drTKc" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">Fashion resellers use high-tech tools to combat designer dupes</div>
+            <div class="work-card-desc">Traveled to New Jersey to field produce. Lined up interviews, planned the shoot, and helped script the package. Aired across 3 shows on NBC News Now.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 6 -->
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_79234fa4f4c14a83a1607de333f9b237~mv2.png/v1/fill/w_359,h_206,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ai%20art_PNG.png" alt="Christie's AI art auction" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Feature</div>
+            <div class="work-card-title">Christie's AI art auction draws big-money bids — and thousands of protest signatures</div>
+            <div class="work-card-desc">Wrote the script and Q&A read by the anchor, and helped collect images and footage for the piece.</div>
+            <div class="work-card-arrow">Read Story →</div>
+          </div>
+        </a>
+
+        <!-- 7 -->
+        <a class="work-card" href="https://www.nbcnews.com/now/video/demand-for-mocktails-on-the-rise-as-consumers-consider-alcohol-implications-230136901572" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_ee61b8ccbc3b4dc3ac813105f153b448~mv2.jpg/v1/fill/w_367,h_206,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/mocktailsthumb_JPG.jpg" alt="Mocktails story" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">Demand for mocktails on the rise as consumers reconsider alcohol</div>
+            <div class="work-card-desc">Wrote the script, Q&A, and anchor intro for this day-turn package and booked the interviews.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 8 -->
+        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_e31e889417284b02a69709bcaa06409c~mv2.png/v1/fill/w_367,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/traffic%20cam%202_PNG.png" alt="Traffic camera selfies" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">New York artist creates website to capture selfies using traffic cameras</div>
+            <div class="work-card-desc">Pitched, traveled to Brooklyn to shoot, lined up interviewees, camera operated, and helped write and edit the package. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 9 -->
+        <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_910d827d4b664340bf8b5dfbb42d2b03~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/farmms_PNG.png" alt="Right to Repair story" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Feature</div>
+            <div class="work-card-title">Right to Repair Revolution: Farmers challenge John Deere's control over equipment</div>
+            <div class="work-card-desc">Flew to rural Missouri to field produce. Found and pre-interviewed sources, organized logistics, camera operated, and wrote the accompanying digital article.</div>
+            <div class="work-card-arrow">Read Story →</div>
+          </div>
+        </a>
+
+        <!-- 10 -->
+        <a class="work-card" href="https://www.cnn.com/videos/tv/2022/07/26/going-green-melati-wijsen-youth-climate-indonesia-spc.cnn" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_c789392e46194bdd8fd05ebd3d158fac~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202022-10-31%20at%204_49_14%20PM.png" alt="CNN Going Green" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">CNN International · Going Green</div>
+            <div class="work-card-title">Meet the young entrepreneur harnessing the power of her generation to fight climate change</div>
+            <div class="work-card-desc">Produced a 5-minute block about Gen-Z climate activist Melati Wijsen. Wrote the script, selected soundbites and b-roll, and directed the edit.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 11 -->
+        <a class="work-card" href="https://www.cnn.com/2022/09/02/sport/mohamed-kayongo-boxing-next-generation-spc-intl" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_f334cf4048064349b6b4a308253510f5~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202022-10-31%20at%204_35_03%20PM.png" alt="CNN boxing story" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">CNN International · African Voices Changemakers</div>
+            <div class="work-card-title">From child soldier to boxing champion: Mohamed Kayongo uses boxing to teach life lessons</div>
+            <div class="work-card-desc">Produced the first 11-minute block of this feature. Wrote the script, selected soundbites and footage, and saw the story through to final edits.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 12 -->
+        <a class="work-card" href="https://www.nbcnews.com/video/teen-wakes-from-coma-after-falling-in-ravine-and-getting-stuck-for-three-days-244845637619" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <img src="https://static.wixstatic.com/media/9ae11c_48354026f3ec42258fce5eea4bbead89~mv2.png/v1/fill/w_367,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ravine%20fall_PNG.png" alt="Teen ravine coma story" loading="lazy" />
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Breaking News</div>
+            <div class="work-card-title">Teen wakes from coma after falling in ravine and getting stuck for three days</div>
+            <div class="work-card-desc">Pitched, traveled to New York to shoot, lined up interviewees, conducted MOS, camera operated, wrote the script, and helped edit. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 13 -->
+        <a class="work-card" href="https://www.youtube.com/watch?v=NTGP-JykjqA" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">TVB Hong Kong</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">Television Broadcasts Limited · Hong Kong</div>
+            <div class="work-card-title">Ocean Park teams up with HK Guide Dogs Association to breed puppies for the blind</div>
+            <div class="work-card-desc">Sourced the story, conducted interviews, wrote the script, picked soundbites, voiced, and did the standup.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 14 -->
+        <a class="work-card" href="https://youtu.be/cEveflviWh0" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Profile</div>
+            <div class="work-card-title">Wendy Hamilton's "No Frills" response to greed in the Elm City</div>
+            <div class="work-card-desc">Produced, shot, and edited the video to accompany a profile of a former Mayoral candidate. Conducted all interviews.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <!-- 15 -->
+        <a class="work-card" href="https://youtu.be/xOqshsK2izc" target="_blank" rel="noopener">
+          <div class="work-card-thumb">
+            <div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Protest</div>
+            <div class="work-card-title">Unions call for respect from Yale at car caravan rally</div>
+            <div class="work-card-desc">Pitched, planned, and produced the video. Conducted all interviews, shot all footage, edited, and piloted the drone.</div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWREEL -->
+  <section id="showreel">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">On-Camera</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="section-title" style="margin-bottom:32px;">Broadcast Showreel</div>
+      <div class="showreel-wrap">
+        <iframe src="https://www.youtube.com/embed/XoS1jRrT4NU" title="Natalie Kainz broadcast showreel" allowfullscreen></iframe>
+      </div>
+      <p class="showreel-note">In the summer of 2020, I interned for the English news channel of Television Broadcasts Limited — Hong Kong's largest television news network. I reported, wrote scripts, and presented stories that aired on the news at 7:30 pm, covering the pandemic, politics, and features. This showreel highlights clips from my time with TVB.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-title">Natalie Kainz</div>
+          <p>I'm a multimedia journalist currently working as an Associate Producer at NBC News' <em>Top Story with Tom Llamas</em>. I graduated from Yale University with honors in Political Science and am based in New York City.</p>
+          <p>My reporting experience is split across my hometown Hong Kong and my current home in the United States. I've worked for CNN International Productions, NBC News, The South China Morning Post, and the New Haven Independent.</p>
+          <p>I was the Multimedia Managing Editor of the Yale Daily News from 2021–2022, and was a scholar of the Yale Journalism Initiative and winner of the 1912 Yale News Board Prize for reporting in 2023.</p>
+          <p>I'm passionate about reporting on international affairs, culture, and technology.</p>
+          <a href="#" class="resume-link">Download Resume →</a>
+        </div>
+        <div class="about-photo">
+          <img src="https://static.wixstatic.com/media/9ae11c_daec2efd821845c388c5d1c71488bc56~mv2.jpg/v1/fill/w_490,h_311,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9ae11c_daec2efd821845c388c5d1c71488bc56~mv2.jpg" alt="Natalie Kainz" />
+          <div class="about-photo-frame"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-years">2019 – 2023</div>
+          <div class="edu-degree">B.A. Political Science</div>
+          <div class="edu-school">Yale University</div>
+          <div class="edu-notes">Scholar of the Yale Journalism Initiative and winner of the 1912 Yale News Board Prize for reporting in 2023. Member of the Yale Daily News, the Hong Kong Students' Association, The Yale International Relations Association, and The Equity Research and Innovation Center.</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-years">2017 – 2019</div>
+          <div class="edu-degree">High School Diploma (IB)</div>
+          <div class="edu-school">King George V School, Hong Kong</div>
+          <div class="edu-notes">Student council president and winner of the Brenda Fluhr Prize for being the top-achieving student to go to university in the U.S. Completed the International Baccalaureate with a score of 43 out of 45.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="experience-list">
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Jan 2026 – Present<br>New York</div>
+            <div class="exp-org">NBC News</div>
+          </div>
+          <div>
+            <div class="exp-role">Associate Producer — Top Story with Tom Llamas</div>
+            <div class="exp-desc">Pitches, sources, writes and edits 3–5 minute packages for Top Story. Assists with breaking news coverage.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">May 2024 – Dec 2025<br>New York</div>
+            <div class="exp-org">NBC News</div>
+          </div>
+          <div>
+            <div class="exp-role">Production Assistant — Top Story with Tom Llamas</div>
+            <div class="exp-desc">Wrote, edited, and produced segments, packages, and short tells for Top Story.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Sep 2023 – Apr 2024<br>New York</div>
+            <div class="exp-org">NBC News</div>
+          </div>
+          <div>
+            <div class="exp-role">News Associate — Digital Breaking News &amp; New York Bureau</div>
+            <div class="exp-desc">Worked as a reporter on the breaking news team covering international affairs, crime, and entertainment.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Sep 2022 – Dec 2022<br>New York</div>
+            <div class="exp-org">NBC Nightly News</div>
+          </div>
+          <div>
+            <div class="exp-role">Intern</div>
+            <div class="exp-desc">Worked with the Nightly News show team to research stories, log footage, and support the control room. Assisted with social media headlines and captions. Pitched and wrote stories for Nightly Kids.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Jun 2022 – Aug 2022<br>Atlanta</div>
+            <div class="exp-org">CNN International Productions</div>
+          </div>
+          <div>
+            <div class="exp-role">Intern</div>
+            <div class="exp-desc">Worked with a team producing features for broadcast and online audiences. Researched, pitched, planned, and put together stories, segments, and programs on business, culture, and conservation.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Jun 2021 – Aug 2021<br>New Haven</div>
+            <div class="exp-org">The New Haven Independent</div>
+          </div>
+          <div>
+            <div class="exp-role">Intern &amp; Reporter</div>
+            <div class="exp-desc">Covered local politics, court, and features in print and multimedia.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">May 2021 – Aug 2021<br>New Haven</div>
+            <div class="exp-org">AAJA</div>
+          </div>
+          <div>
+            <div class="exp-role">Documentary Fellow — Asian American Journalists Association</div>
+            <div class="exp-desc">Part of the AAJA's short documentary team for the Voices Fellowship mentorship program. Created a documentary about Hong Kong people immigrating to the USA.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Sep 2019 – Sep 2022<br>New Haven</div>
+            <div class="exp-org">The Yale Daily News</div>
+          </div>
+          <div>
+            <div class="exp-role">Multimedia Managing Editor, Beat Reporter, Video Editor</div>
+            <div class="exp-desc">Oversaw the photography, data, video, podcast, and illustrations desks. Executed editorial decisions. Directed video projects and trained teams to plan, shoot, edit, and write. Wrote for the city desk as a beat reporter.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Jun 2020 – Aug 2020<br>Hong Kong</div>
+            <div class="exp-org">TVB News</div>
+          </div>
+          <div>
+            <div class="exp-role">Intern — Television Broadcasts Limited</div>
+            <div class="exp-desc">Pitched, wrote and presented stories on-air. Covered the implementation of Hong Kong's National Security Law.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-dates">Aug 2018 – Nov 2020<br>Hong Kong</div>
+            <div class="exp-org">South China Morning Post</div>
+          </div>
+          <div>
+            <div class="exp-role">Junior Reporter — Young Post</div>
+            <div class="exp-desc">Wrote and pitched articles, made videos, and took photos. Covered the Hong Kong protests of 2019 and 2020. Mentored younger reporters.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <h2 class="contact-heading">Let's<br><em>get in touch</em></h2>
+          <p class="contact-sub">The quickest way to reach me is via email. I'm always happy to connect about story ideas, collaborations, or opportunities.</p>
+          <a href="mailto:nataliekainz@gmail.com" class="contact-email">nataliekainz@gmail.com</a>
+          <div class="social-links">
+            <a href="https://twitter.com/Nat_Kainz" class="social-link" target="_blank" rel="noopener">Twitter / X</a>
+            <a href="http://instagram.com/nat.kainz" class="social-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://github.com/nataliekainz" class="social-link" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div>
+          <p class="contact-tagline">"Passionate about reporting on international affairs, culture, and technology."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Natalie Kainz</div>
+    <div class="footer-copy">© 2025 Natalie Kainz · All rights reserved</div>
+  </footer>
+
 </body>
 </html>
