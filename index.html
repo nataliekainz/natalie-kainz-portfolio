@@ -98,9 +98,9 @@
       line-height: 1.0;
       letter-spacing: -0.02em;
       margin-bottom: 28px;
+      color: var(--ink);
+      font-style: normal;
     }
-
-    .hero-name em { font-style: italic; color: var(--accent); }
 
     .hero-bio {
       font-size: 1rem;
@@ -140,7 +140,6 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: border-color 0.2s;
     }
 
     .hero-stat-item:hover .hero-stat-number { color: var(--accent); }
@@ -204,6 +203,30 @@
 
     .container + .container { border-top: 1px solid var(--rule); }
 
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--warm-gray);
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
     /* ── WORK GRID ── */
     .work-grid {
       display: grid;
@@ -224,6 +247,7 @@
     }
 
     .work-card:hover { background: #fff; }
+    .work-card.hidden { display: none; }
 
     .work-card-thumb {
       width: 100%;
@@ -288,13 +312,49 @@
       flex: 1;
     }
 
+    .work-card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .beat-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      color: var(--warm-gray);
+      padding: 3px 8px;
+    }
+
+    .beat-tag.tech { border-color: #6b8cba; color: #6b8cba; }
+    .beat-tag.politics { border-color: #b85c38; color: #b85c38; }
+    .beat-tag.culture { border-color: #7a9e7e; color: #7a9e7e; }
+    .beat-tag.international { border-color: #9b7ab8; color: #9b7ab8; }
+    .beat-tag.breaking { border-color: #c0392b; color: #c0392b; }
+
     .work-card-arrow {
-      margin-top: 18px;
+      margin-top: 14px;
       font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
+    }
+
+    .no-results {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      background: var(--card-bg);
     }
 
     /* ── SHOWREEL ── */
@@ -332,7 +392,10 @@
       margin-bottom: 12px;
       overflow: hidden;
       position: relative;
+      transition: opacity 0.3s;
     }
+
+    .masonry-item.hidden { display: none; }
 
     .masonry-item img {
       width: 100%;
@@ -367,7 +430,6 @@
     }
 
     .about-photo { position: relative; }
-
     .about-photo img { width: 100%; object-fit: cover; display: block; }
 
     .about-photo-frame {
@@ -478,7 +540,6 @@
     }
 
     .contact-heading em { font-style: italic; color: var(--accent); }
-
     .contact-sub { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.7; margin-bottom: 32px; }
 
     .contact-email {
@@ -569,7 +630,7 @@
   <nav>
     <a href="#top" class="nav-logo">Natalie Kainz</a>
     <ul class="nav-links">
-      <li><a href="#producing">Producing</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#reporting">Reporting</a></li>
       <li><a href="#photography">Photography</a></li>
       <li><a href="#about">About</a></li>
@@ -582,12 +643,12 @@
     <div class="hero">
       <div class="hero-text">
         <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
-        <h1 class="hero-name">Natalie<br><em>Kainz</em></h1>
+        <h1 class="hero-name">Natalie Kainz</h1>
         <p class="hero-bio">Associate Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, culture, and technology — from New York and Hong Kong.</p>
-        <a href="#producing" class="hero-cta">View My Work →</a>
+        <a href="#work" class="hero-cta">View My Work →</a>
       </div>
       <div class="hero-stats">
-        <a href="#producing" class="hero-stat-item">
+        <a href="#work" class="hero-stat-item">
           <div class="hero-stat-number">Producing</div>
           <div class="hero-stat-label">TV packages, segments &amp; investigative features</div>
         </a>
@@ -603,173 +664,193 @@
     </div>
   </section>
 
-  <!-- PRODUCING -->
-  <section id="producing">
+  <!-- WORK / PRODUCING -->
+  <section id="work">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Work</span>
         <div class="section-rule"></div>
       </div>
       <div class="section-title">Producing</div>
-      <p class="section-intro">TV packages, segments, and investigative features produced for NBC News, CNN International, and more.</p>
+      <p class="section-intro">TV packages, segments, and investigative features. Filter by beat below.</p>
 
-      <div class="work-grid">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-target="work-grid">All</button>
+        <button class="filter-btn" data-filter="tech" data-target="work-grid">Tech</button>
+        <button class="filter-btn" data-filter="politics" data-target="work-grid">Politics</button>
+        <button class="filter-btn" data-filter="culture" data-target="work-grid">Culture</button>
+        <button class="filter-btn" data-filter="international" data-target="work-grid">International</button>
+        <button class="filter-btn" data-filter="breaking" data-target="work-grid">Breaking News</button>
+      </div>
 
-        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener">
+      <div class="work-grid" id="work-grid">
+
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener" data-tags="tech politics">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Investigative</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Investigative Feature</div>
             <div class="work-card-title">How NDAs keep AI data center details hidden from Americans</div>
             <div class="work-card-desc">A three-month investigation involving 50 public records requests across 15 states, analyzing how tech companies use secrecy agreements with local governments.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
             <div class="work-card-arrow">Read Story →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.youtube.com/watch?v=eMXvDB5Ut9g" target="_blank" rel="noopener">
+        <a class="work-card" href="https://www.youtube.com/watch?v=eMXvDB5Ut9g" target="_blank" rel="noopener" data-tags="tech culture">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
             <div class="work-card-title">YKK upgrades the zipper after a century of consistency</div>
             <div class="work-card-desc">A feature exploring the iconic zipper company's first major reinvention in over 100 years.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/news/latino/nashville-parthenon-museum-returns-mexican-artifacts-rcna163296" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_53fa82ae285949d2b52baed7bf042347~mv2.jpg/v1/fill/w_367,h_206,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/nashville_JPG.jpg" alt="Nashville Parthenon" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/news/latino/nashville-parthenon-museum-returns-mexican-artifacts-rcna163296" target="_blank" rel="noopener" data-tags="culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Nashville museum returns 500-year-old Mexican artifact collection 'where it belongs'</div>
             <div class="work-card-desc">Pitched, traveled to Nashville, lined up interviewees, camera operated, and wrote the digital article. Aired across 3 shows on NBC News Now.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Read Story →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://youtu.be/ERyFUyfmXzQ?si=n32wqbWbUCmBK0gv" target="_blank" rel="noopener">
+        <a class="work-card" href="https://youtu.be/ERyFUyfmXzQ?si=n32wqbWbUCmBK0gv" target="_blank" rel="noopener" data-tags="tech culture">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Seemingly AI-generated band gains 700K+ monthly Spotify listeners</div>
             <div class="work-card-desc">Pitched, booked all guests, wrote the digital article, and helped script the package. Re-aired across multiple NBC News Now shows.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.youtube.com/watch?v=uV2hS2drTKc" target="_blank" rel="noopener">
+        <a class="work-card" href="https://www.youtube.com/watch?v=uV2hS2drTKc" target="_blank" rel="noopener" data-tags="tech culture">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Fashion resellers use high-tech tools to combat designer dupes</div>
             <div class="work-card-desc">Traveled to New Jersey to field produce. Lined up interviews, planned the shoot, and helped script the package. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_79234fa4f4c14a83a1607de333f9b237~mv2.png/v1/fill/w_359,h_206,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ai%20art_PNG.png" alt="Christie's AI art" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener" data-tags="tech culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
             <div class="work-card-title">Christie's AI art auction draws big-money bids — and thousands of protest signatures</div>
             <div class="work-card-desc">Wrote the script and Q&A, and helped collect images and footage for the piece.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Read Story →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/now/video/demand-for-mocktails-on-the-rise-as-consumers-consider-alcohol-implications-230136901572" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_ee61b8ccbc3b4dc3ac813105f153b448~mv2.jpg/v1/fill/w_367,h_206,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/mocktailsthumb_JPG.jpg" alt="Mocktails" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/now/video/demand-for-mocktails-on-the-rise-as-consumers-consider-alcohol-implications-230136901572" target="_blank" rel="noopener" data-tags="culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Demand for mocktails on the rise as consumers reconsider alcohol</div>
             <div class="work-card-desc">Wrote the script, Q&A, and anchor intro for this day-turn package and booked the interviews.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_e31e889417284b02a69709bcaa06409c~mv2.png/v1/fill/w_367,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/traffic%20cam%202_PNG.png" alt="Traffic cameras" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener" data-tags="tech culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">New York artist creates website to capture selfies using traffic cameras</div>
             <div class="work-card-desc">Pitched, traveled to Brooklyn, lined up interviewees, camera operated, helped write and edit. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_910d827d4b664340bf8b5dfbb42d2b03~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/farmms_PNG.png" alt="Right to Repair" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener" data-tags="tech politics">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
             <div class="work-card-title">Right to Repair Revolution: Farmers challenge John Deere's control over equipment</div>
             <div class="work-card-desc">Flew to rural Missouri to field produce. Found and pre-interviewed sources, organized logistics, camera operated, and wrote the digital article.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
             <div class="work-card-arrow">Read Story →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.cnn.com/videos/tv/2022/07/26/going-green-melati-wijsen-youth-climate-indonesia-spc.cnn" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_c789392e46194bdd8fd05ebd3d158fac~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202022-10-31%20at%204_49_14%20PM.png" alt="CNN Going Green" loading="lazy" />
+        <a class="work-card" href="https://www.youtube.com/watch?v=_HB91-FuDMo" target="_blank" rel="noopener" data-tags="politics">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">MAHA moms on the movement</div>
+            <div class="work-card-desc">Produced this feature on the Make America Healthy Again movement and the mothers driving it.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
           </div>
+        </a>
+
+        <a class="work-card" href="https://www.cnn.com/videos/tv/2022/07/26/going-green-melati-wijsen-youth-climate-indonesia-spc.cnn" target="_blank" rel="noopener" data-tags="culture international">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">CNN International</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">CNN International · Going Green</div>
             <div class="work-card-title">Meet the young entrepreneur harnessing Gen-Z power to fight climate change</div>
             <div class="work-card-desc">Produced a 5-minute block about climate activist Melati Wijsen. Wrote the script, selected soundbites and b-roll, and directed the edit.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span><span class="beat-tag international">International</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.cnn.com/2022/09/02/sport/mohamed-kayongo-boxing-next-generation-spc-intl" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_f334cf4048064349b6b4a308253510f5~mv2.png/v1/fill/w_375,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202022-10-31%20at%204_35_03%20PM.png" alt="CNN boxing" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.cnn.com/2022/09/02/sport/mohamed-kayongo-boxing-next-generation-spc-intl" target="_blank" rel="noopener" data-tags="culture international">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">CNN International</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">CNN International · African Voices Changemakers</div>
             <div class="work-card-title">From child soldier to boxing champion: Mohamed Kayongo uses boxing to teach life lessons</div>
             <div class="work-card-desc">Produced the first 11-minute block. Wrote the script, selected soundbites and footage, and saw the story through to final edits.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span><span class="beat-tag international">International</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/video/teen-wakes-from-coma-after-falling-in-ravine-and-getting-stuck-for-three-days-244845637619" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_48354026f3ec42258fce5eea4bbead89~mv2.png/v1/fill/w_367,h_209,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ravine%20fall_PNG.png" alt="Teen ravine" loading="lazy" />
-          </div>
+        <a class="work-card" href="https://www.nbcnews.com/video/teen-wakes-from-coma-after-falling-in-ravine-and-getting-stuck-for-three-days-244845637619" target="_blank" rel="noopener" data-tags="breaking">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Breaking News</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Breaking News</div>
             <div class="work-card-title">Teen wakes from coma after falling in ravine and getting stuck for three days</div>
             <div class="work-card-desc">Pitched, traveled to New York, lined up interviewees, camera operated, wrote the script, and helped edit. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-tags"><span class="beat-tag breaking">Breaking News</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://youtu.be/cEveflviWh0" target="_blank" rel="noopener">
+        <a class="work-card" href="https://youtu.be/cEveflviWh0" target="_blank" rel="noopener" data-tags="politics culture">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">The Yale Daily News · Profile</div>
             <div class="work-card-title">Wendy Hamilton's "No Frills" response to greed in the Elm City</div>
             <div class="work-card-desc">Produced, shot, and edited the video to accompany a profile of a former Mayoral candidate. Conducted all interviews.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
-        <a class="work-card" href="https://youtu.be/xOqshsK2izc" target="_blank" rel="noopener">
+        <a class="work-card" href="https://youtu.be/xOqshsK2izc" target="_blank" rel="noopener" data-tags="politics">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">The Yale Daily News · Protest</div>
             <div class="work-card-title">Unions call for respect from Yale at car caravan rally</div>
             <div class="work-card-desc">Pitched, planned, and produced. Conducted all interviews, shot all footage, edited, and piloted the drone.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
+
+        <div class="no-results" id="work-no-results">No stories match this filter</div>
 
       </div>
     </div>
@@ -791,13 +872,13 @@
       <p class="showreel-note" style="margin-bottom: 48px;">In the summer of 2020, I interned for the English news channel of Television Broadcasts Limited — Hong Kong's largest television news network. I reported, wrote scripts, and presented stories that aired at 7:30 pm, covering the pandemic, politics, and features.</p>
 
       <div class="work-grid">
-
         <a class="work-card" href="https://www.youtube.com/watch?v=NTGP-JykjqA" target="_blank" rel="noopener">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">TVB Hong Kong</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">Television Broadcasts Limited · Hong Kong</div>
             <div class="work-card-title">Ocean Park teams up with HK Guide Dogs Association to breed puppies for the blind</div>
             <div class="work-card-desc">Sourced the story, conducted interviews, wrote the script, voiced, and did the standup.</div>
+            <div class="work-card-tags"><span class="beat-tag international">International</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
@@ -808,18 +889,18 @@
             <div class="work-card-outlet">Television Broadcasts Limited · Hong Kong</div>
             <div class="work-card-title">SARG to test all domestic helpers living in boarding facilities arranged by agencies</div>
             <div class="work-card-desc">Sourced the story, conducted interviews, wrote the script, voiced, and did the standup.</div>
+            <div class="work-card-tags"><span class="beat-tag international">International</span><span class="beat-tag politics">Politics</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/nightly-news-kids-edition-october-27-2022-151725637745" target="_blank" rel="noopener">
-          <div class="work-card-thumb">
-            <img src="https://static.wixstatic.com/media/9ae11c_a43b75eb788e431897002f7cfcc350d8~mv2.png/v1/fill/w_367,h_206,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202022-10-31%20at%205_11_04%20PM.png" alt="Nightly News Kids" loading="lazy" />
-          </div>
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">NBC Nightly News</span></div></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC Nightly News: Kids Edition</div>
             <div class="work-card-title">It's The Great Pumpkin! America's heaviest pumpkin record</div>
             <div class="work-card-desc">Interviewed the record holder, chose soundbites, sourced visuals, and wrote the script. My segment runs from 18:25–20:15.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
@@ -830,6 +911,7 @@
             <div class="work-card-outlet">The Yale Daily News · Protest</div>
             <div class="work-card-title">New Haven students protest police violence</div>
             <div class="work-card-desc">Pitched, planned, conducted interviews, shot footage, and edited this video about a student-led BLM protest.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
@@ -840,10 +922,10 @@
             <div class="work-card-outlet">The Yale Daily News · Feature</div>
             <div class="work-card-title">Community spirit helps local Asian stores survive the pandemic</div>
             <div class="work-card-desc">Produced, shot, and edited this video about Asian grocery stores in New Haven. Conducted all interviews.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span><span class="beat-tag international">International</span></div>
             <div class="work-card-arrow">Watch →</div>
           </div>
         </a>
-
       </div>
     </div>
   </section>
@@ -858,72 +940,67 @@
       <div class="section-title">Photography</div>
       <p class="section-intro">Visual storytelling across Hong Kong, New Haven, and New York.</p>
 
-      <!--
-        HOW TO ADD YOUR PHOTOS:
-        1. Upload your photo files to GitHub (into an "images" folder is tidiest)
-        2. For each photo, add a new block like this inside the masonry-grid div:
-
-           <div class="masonry-item">
-             <img src="images/your-filename.jpg" alt="Brief description" loading="lazy" />
-             <div class="masonry-overlay"></div>
-           </div>
-
-        3. The masonry layout will handle sizing automatically — just add them in order.
-        4. Commit and push, and they'll appear on your live site.
-      -->
-
-      <div class="masonry-grid">
-        <div class="masonry-item">
-  <img src="littlegirl.jpg" alt="Little girl" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="mongoliaeagle.jpg" alt="Mongolia eagle" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="sabrinasnow.jpg" alt="Sabrina in snow" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="SAB2.jpg" alt="Sabrina in snow 2" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="snowmonkey.jpg" alt="Snow monkey" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="snowmonkey2.jpg" alt="Snow monkey 2" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="girlatfoodstall.jpg" alt="Girl at food stall" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="tiananmen.jpg" alt="Tiananmen" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="tiananmen2.jpg" alt="Tiananmen 2" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-<div class="masonry-item">
-  <img src="zoelights.jpg" alt="Zoe lights" loading="lazy" />
-  <div class="masonry-overlay"></div>
-</div>
-
-        <!-- ADD YOUR PHOTO BLOCKS HERE — example format:
-        <div class="masonry-item">
-          <img src="images/photo1.jpg" alt="Description" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-        -->
-
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-target="photo-grid">All</button>
+        <button class="filter-btn" data-filter="fashion" data-target="photo-grid">Fashion</button>
+        <button class="filter-btn" data-filter="travel" data-target="photo-grid">Travel</button>
+        <button class="filter-btn" data-filter="photojournalism" data-target="photo-grid">Photojournalism</button>
+        <button class="filter-btn" data-filter="street" data-target="photo-grid">Street</button>
       </div>
 
+      <div class="masonry-grid" id="photo-grid">
 
+        <div class="masonry-item" data-tags="street">
+          <img src="littlegirl.jpg" alt="Little girl" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="mongoliaeagle.jpg" alt="Mongolia eagle" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="fashion">
+          <img src="sabrinasnow.jpg" alt="Sabrina in snow" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="fashion">
+          <img src="SAB2.jpg" alt="Sabrina in snow 2" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="snowmonkey.jpg" alt="Snow monkey" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="snowmonkey2.jpg" alt="Snow monkey 2" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="girlatfoodstall.jpg" alt="Girl at food stall" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="tiananmen.jpg" alt="Tiananmen" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="tiananmen2.jpg" alt="Tiananmen 2" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="fashion">
+          <img src="zoelights.jpg" alt="Zoe lights" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -938,9 +1015,8 @@
         <div class="about-text">
           <div class="section-title">Natalie Kainz</div>
           <p>I'm a multimedia journalist currently working as an Associate Producer at NBC News' <em>Top Story with Tom Llamas</em>. I graduated from Yale University with honors in Political Science and am based in New York City.</p>
-          <p>My reporting experience is split across my hometown Hong Kong and my current home in the United States. I've worked for CNN International Productions, NBC News, The South China Morning Post, and the New Haven Independent.</p>
+          <p>My reporting experience spans politics, technology, and culture — across my hometown Hong Kong and my current home in the United States. I've worked for CNN International Productions, NBC News, The South China Morning Post, and the New Haven Independent.</p>
           <p>I was the Multimedia Managing Editor of the Yale Daily News from 2021–2022, and was a scholar of the Yale Journalism Initiative and winner of the 1912 Yale News Board Prize for reporting in 2023.</p>
-          <p>I'm passionate about reporting on international affairs, culture, and technology.</p>
           <a href="#" class="resume-link">Download Resume →</a>
         </div>
         <div class="about-photo">
@@ -976,87 +1052,46 @@
           <div class="section-rule"></div>
         </div>
         <div class="experience-list">
-
           <div class="exp-item">
             <div><div class="exp-dates">Jan 2026 – Present · New York</div><div class="exp-org">NBC News</div></div>
-            <div>
-              <div class="exp-role">Associate Producer — Top Story with Tom Llamas</div>
-              <div class="exp-desc">Pitches, sources, writes and edits 3–5 minute packages for Top Story. Assists with breaking news coverage.</div>
-            </div>
+            <div><div class="exp-role">Associate Producer — Top Story with Tom Llamas</div><div class="exp-desc">Pitches, sources, writes and edits 3–5 minute packages for Top Story. Assists with breaking news coverage.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">May 2024 – Dec 2025 · New York</div><div class="exp-org">NBC News</div></div>
-            <div>
-              <div class="exp-role">Production Assistant — Top Story with Tom Llamas</div>
-              <div class="exp-desc">Wrote, edited, and produced segments, packages, and short tells for Top Story.</div>
-            </div>
+            <div><div class="exp-role">Production Assistant — Top Story with Tom Llamas</div><div class="exp-desc">Wrote, edited, and produced segments, packages, and short tells for Top Story.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Sep 2023 – Apr 2024 · New York</div><div class="exp-org">NBC News</div></div>
-            <div>
-              <div class="exp-role">News Associate — Digital Breaking News &amp; New York Bureau</div>
-              <div class="exp-desc">Worked as a reporter on the breaking news team covering international affairs, crime, and entertainment.</div>
-            </div>
+            <div><div class="exp-role">News Associate — Digital Breaking News &amp; New York Bureau</div><div class="exp-desc">Worked as a reporter on the breaking news team covering international affairs, crime, and entertainment.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Sep 2022 – Dec 2022 · New York</div><div class="exp-org">NBC Nightly News</div></div>
-            <div>
-              <div class="exp-role">Intern</div>
-              <div class="exp-desc">Researched stories, logged footage, and supported the control room. Assisted with social media headlines. Pitched and wrote stories for Nightly Kids.</div>
-            </div>
+            <div><div class="exp-role">Intern</div><div class="exp-desc">Researched stories, logged footage, and supported the control room. Assisted with social media headlines. Pitched and wrote stories for Nightly Kids.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Jun 2022 – Aug 2022 · Atlanta</div><div class="exp-org">CNN International Productions</div></div>
-            <div>
-              <div class="exp-role">Intern</div>
-              <div class="exp-desc">Researched, pitched, planned, and produced stories, segments, and programs on business, culture, and conservation.</div>
-            </div>
+            <div><div class="exp-role">Intern</div><div class="exp-desc">Researched, pitched, planned, and produced stories, segments, and programs on business, culture, and conservation.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Jun 2021 – Aug 2021 · New Haven</div><div class="exp-org">The New Haven Independent</div></div>
-            <div>
-              <div class="exp-role">Intern &amp; Reporter</div>
-              <div class="exp-desc">Covered local politics, court, and features in print and multimedia.</div>
-            </div>
+            <div><div class="exp-role">Intern &amp; Reporter</div><div class="exp-desc">Covered local politics, court, and features in print and multimedia.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">May 2021 – Aug 2021 · New Haven</div><div class="exp-org">AAJA</div></div>
-            <div>
-              <div class="exp-role">Documentary Fellow</div>
-              <div class="exp-desc">Created a short documentary about Hong Kong people immigrating to the USA as part of the AAJA Voices Fellowship mentorship program.</div>
-            </div>
+            <div><div class="exp-role">Documentary Fellow</div><div class="exp-desc">Created a short documentary about Hong Kong people immigrating to the USA as part of the AAJA Voices Fellowship mentorship program.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Sep 2019 – Sep 2022 · New Haven</div><div class="exp-org">The Yale Daily News</div></div>
-            <div>
-              <div class="exp-role">Multimedia Managing Editor, Beat Reporter, Video Editor</div>
-              <div class="exp-desc">Oversaw photography, data, video, podcast, and illustrations desks. Directed video projects and trained teams. Wrote for the city desk as a beat reporter.</div>
-            </div>
+            <div><div class="exp-role">Multimedia Managing Editor, Beat Reporter, Video Editor</div><div class="exp-desc">Oversaw photography, data, video, podcast, and illustrations desks. Directed video projects and trained teams. Wrote for the city desk as a beat reporter.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Jun 2020 – Aug 2020 · Hong Kong</div><div class="exp-org">TVB News</div></div>
-            <div>
-              <div class="exp-role">Intern — Television Broadcasts Limited</div>
-              <div class="exp-desc">Pitched, wrote and presented stories on-air. Covered the implementation of Hong Kong's National Security Law.</div>
-            </div>
+            <div><div class="exp-role">Intern — Television Broadcasts Limited</div><div class="exp-desc">Pitched, wrote and presented stories on-air. Covered the implementation of Hong Kong's National Security Law.</div></div>
           </div>
-
           <div class="exp-item">
             <div><div class="exp-dates">Aug 2018 – Nov 2020 · Hong Kong</div><div class="exp-org">South China Morning Post</div></div>
-            <div>
-              <div class="exp-role">Junior Reporter — Young Post</div>
-              <div class="exp-desc">Wrote and pitched articles, made videos, and took photos. Covered the Hong Kong protests of 2019 and 2020. Mentored younger reporters.</div>
-            </div>
+            <div><div class="exp-role">Junior Reporter — Young Post</div><div class="exp-desc">Wrote and pitched articles, made videos, and took photos. Covered the Hong Kong protests of 2019 and 2020. Mentored younger reporters.</div></div>
           </div>
-
         </div>
       </div>
     </div>
@@ -1077,7 +1112,7 @@
           </div>
         </div>
         <div>
-          <p class="contact-tagline">"Passionate about reporting on international affairs, culture, and technology."</p>
+          <p class="contact-tagline">"Reporting on politics, technology, and culture — from New York and Hong Kong."</p>
         </div>
       </div>
     </div>
@@ -1090,12 +1125,35 @@
   </footer>
 
   <script>
-    // Hide the photo placeholder text once real images are added
-    const grid = document.querySelector('.masonry-grid');
-    const placeholder = document.getElementById('photo-placeholder');
-    if (grid && grid.children.length > 0) {
-      placeholder.style.display = 'none';
+    // Generic filter function — works for both work cards and photo items
+    function setupFilter(barSelector, gridId, noResultsId) {
+      const btns = document.querySelectorAll(`[data-target="${gridId}"]`);
+      const grid = document.getElementById(gridId);
+      const items = grid.querySelectorAll('[data-tags]');
+      const noResults = document.getElementById(noResultsId);
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          let visible = 0;
+          items.forEach(item => {
+            const tags = item.dataset.tags || '';
+            const match = filter === 'all' || tags.split(' ').includes(filter);
+            item.classList.toggle('hidden', !match);
+            if (match) visible++;
+          });
+
+          if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+        });
+      });
     }
+
+    setupFilter(null, 'work-grid', 'work-no-results');
+    setupFilter(null, 'photo-grid', null);
   </script>
 
 </body>
