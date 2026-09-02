@@ -72,40 +72,42 @@
     .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
-    .hero-banner {
-      margin-top: 60px;
-      width: 100%;
-      height: clamp(300px, 46vh, 520px);
-      overflow: hidden;
-      position: relative;
-      background: var(--ink);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .hero-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 28%;
-      display: block;
-    }
-
-    .hero-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(245,240,232,0) 55%, rgba(245,240,232,0.55) 100%);
-      pointer-events: none;
-    }
-
     .hero {
-      padding: 72px 48px 80px;
+      padding: 128px 48px 80px;
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: end;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .hero-photo-wrap img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      top: 16px; left: 16px; right: -16px; bottom: -16px;
+      border: 2px solid var(--accent);
+      z-index: 0;
     }
 
     .hero-eyebrow {
@@ -393,6 +395,11 @@
     .beat-tag.culture { border-color: #7a9e7e; color: #7a9e7e; }
     .beat-tag.international { border-color: #9b7ab8; color: #9b7ab8; }
     .beat-tag.breaking { border-color: #c0392b; color: #c0392b; }
+    .beat-tag.health { border-color: #3f9e8f; color: #3f9e8f; }
+    .beat-tag.sports { border-color: #c2892f; color: #c2892f; }
+    .beat-tag.science { border-color: #5f7aa8; color: #5f7aa8; }
+    .beat-tag.education { border-color: #9c6b4f; color: #9c6b4f; }
+    .beat-tag.legal { border-color: #7d8794; color: #7d8794; }
 
     .work-card-arrow {
       margin-top: 14px;
@@ -439,6 +446,26 @@
       line-height: 1.7;
       max-width: 700px;
     }
+
+    .tvb-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+      margin: 32px 0 48px;
+    }
+
+    .tvb-photo { position: relative; margin: 0; }
+    .tvb-photo img { width: 100%; height: auto; display: block; }
+    .tvb-photo figcaption {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-top: 10px;
+    }
+    .tvb-block .showreel-note { margin: 0; }
 
     /* ── MASONRY ── */
     .masonry-grid {
@@ -489,7 +516,7 @@
     }
 
     .about-photo { position: relative; }
-    .about-photo img { width: 100%; object-fit: cover; display: block; }
+    .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 22%; display: block; }
 
     .about-photo-frame {
       position: absolute;
@@ -656,15 +683,17 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-text { animation: fadeUp 0.7s ease both; }
+    .hero-left { animation: fadeUp 0.7s ease both; }
     .hero-stats { animation: fadeUp 0.7s 0.15s ease both; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       nav { padding: 0 24px; }
       .nav-links { gap: 16px; }
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 60px; }
-      .hero-banner { height: clamp(220px, 34vh, 320px); }
+      .hero { grid-template-columns: 1fr; gap: 44px; padding: 96px 24px 60px; }
+      .hero-photo-wrap { max-width: 360px; }
+      .tvb-block { grid-template-columns: 1fr; gap: 24px; }
+      .tvb-photo { max-width: 420px; }
       .container { padding: 60px 24px; }
       .work-grid { grid-template-columns: 1fr 1fr; }
       .masonry-grid { columns: 2; }
@@ -700,15 +729,17 @@
 
   <!-- HERO -->
   <section id="top">
-    <div class="hero-banner">
-      <img src="headerphoto.jpg" alt="Natalie Kainz reporting" />
-    </div>
     <div class="hero">
-      <div class="hero-text">
-        <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
-        <h1 class="hero-name">Natalie Kainz</h1>
-        <p class="hero-bio">Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, politics, culture, and technology — from New York and Hong Kong.</p>
-        <a href="#work" class="hero-cta">View My Work →</a>
+      <div class="hero-left">
+        <div class="hero-photo-wrap">
+          <img src="headerphoto.jpg" alt="Natalie Kainz on a New York street at golden hour" />
+        </div>
+        <div class="hero-text">
+          <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
+          <h1 class="hero-name">Natalie Kainz</h1>
+          <p class="hero-bio">Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, politics, culture, and technology — from New York and Hong Kong.</p>
+          <a href="#work" class="hero-cta">View My Work →</a>
+        </div>
       </div>
       <div class="hero-stats">
         <a href="#work" class="hero-stat-item">
@@ -741,12 +772,214 @@
         <button class="filter-btn active" data-filter="all" data-target="work-grid">All</button>
         <button class="filter-btn" data-filter="tech" data-target="work-grid">Tech</button>
         <button class="filter-btn" data-filter="politics" data-target="work-grid">Politics</button>
+        <button class="filter-btn" data-filter="health" data-target="work-grid">Health</button>
+        <button class="filter-btn" data-filter="sports" data-target="work-grid">Sports</button>
         <button class="filter-btn" data-filter="culture" data-target="work-grid">Culture</button>
         <button class="filter-btn" data-filter="international" data-target="work-grid">International</button>
+        <button class="filter-btn" data-filter="science" data-target="work-grid">Science</button>
+        <button class="filter-btn" data-filter="legal" data-target="work-grid">Legal</button>
         <button class="filter-btn" data-filter="breaking" data-target="work-grid">Breaking News</button>
       </div>
 
       <div class="work-grid" id="work-grid">
+
+        <a class="work-card" href="https://www.nbcnews.com/video/humanoid-robots-cleaning-homes-for-30-an-hour-269041733517" target="_blank" rel="noopener" data-tags="tech">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">Humanoid robots are cleaning homes for $30 an hour</div>
+            <div class="work-card-desc">A look at humanoid robots being deployed for household cleaning work — and what it costs.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/DRS-kaKGaSY?t=1179" target="_blank" rel="noopener" data-tags="legal">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Legal Panel</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Legal Panel</div>
+            <div class="work-card-title">Legal expert panel: the Lindsay Clancy trial</div>
+            <div class="work-card-desc">A panel of legal experts breaks down the Lindsay Clancy trial.</div>
+            <div class="work-card-tags"><span class="beat-tag legal">Legal</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/DRS-kaKGaSY?t=2437" target="_blank" rel="noopener" data-tags="health">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">Doctors warn of the risks of &ldquo;free birth&rdquo;</div>
+            <div class="work-card-desc">Physicians on the dangers of unassisted &ldquo;free birth&rdquo; as the practice gains attention online.</div>
+            <div class="work-card-tags"><span class="beat-tag health">Health</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/E2wWQjLPolg" target="_blank" rel="noopener" data-tags="legal tech">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Newsmakers</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Newsmakers</div>
+            <div class="work-card-title">Meta settles for $18 billion in child safety trial</div>
+            <div class="work-card-desc">Coverage of Meta's $18 billion settlement in a child-safety trial.</div>
+            <div class="work-card-tags"><span class="beat-tag legal">Legal</span><span class="beat-tag tech">Tech</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/E2wWQjLPolg?t=1990" target="_blank" rel="noopener" data-tags="health">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">Busy Philipps shares her brain tumor diagnosis</div>
+            <div class="work-card-desc">The actress opens up about a brain tumor diagnosis in a health-focused conversation.</div>
+            <div class="work-card-tags"><span class="beat-tag health">Health</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/thousands-of-americans-roll-the-dice-on-travel-with-viral-mystery-vacation-trend-268347461583" target="_blank" rel="noopener" data-tags="culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Americans roll the dice on travel with the viral &lsquo;mystery vacation&rsquo; trend</div>
+            <div class="work-card-desc">Why thousands of travelers are booking surprise trips they don't plan themselves.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/WhVrChMBHjM" target="_blank" rel="noopener" data-tags="education">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Debate</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Debate</div>
+            <div class="work-card-title">University of Michigan ditches grades for first-semester students</div>
+            <div class="work-card-desc">A debate over Michigan's move to drop letter grades for first-year students.</div>
+            <div class="work-card-tags"><span class="beat-tag education">Education</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=Z1viZPpB0us" target="_blank" rel="noopener" data-tags="science">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">Could a deadly Caribbean volcano roar back to life?</div>
+            <div class="work-card-desc">Scientists weigh whether a long-dormant Caribbean volcano could become active again.</div>
+            <div class="work-card-tags"><span class="beat-tag science">Science</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/-FNlXH4sf1M?t=2513" target="_blank" rel="noopener" data-tags="tech">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">The AI tool built to win at poker</div>
+            <div class="work-card-desc">A segment on a new artificial-intelligence tool designed to play poker.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/swimmer-breaks-world-record-at-billionaire-backed-enhanced-games-263912517998" target="_blank" rel="noopener" data-tags="sports">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Swimmer &lsquo;breaks&rsquo; a world record at the billionaire-backed Enhanced Games</div>
+            <div class="work-card-desc">A swimmer posts a record-beating time at the drug-permitted Enhanced Games.</div>
+            <div class="work-card-tags"><span class="beat-tag sports">Sports</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/enhanced-games-chief-of-sport-says-drug-fueled-sporting-competition-is-about-athletes-pursuing-their-human-potential-263843397538" target="_blank" rel="noopener" data-tags="sports">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Enhanced Games chief of sport on athletes &lsquo;pursuing their human potential&rsquo;</div>
+            <div class="work-card-desc">The Enhanced Games chief of sport defends drug-permitted competition.</div>
+            <div class="work-card-tags"><span class="beat-tag sports">Sports</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/data-center-approved-in-utah-despite-community-protests-262958661826" target="_blank" rel="noopener" data-tags="tech politics">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Utah data center wins approval despite community protests</div>
+            <div class="work-card-desc">A Utah data center clears approval over local opposition, in a story tied to Kevin O'Leary.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=rQLTg_0cv_k" target="_blank" rel="noopener" data-tags="international culture">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Cuban moms use social media to show life in Cuba</div>
+            <div class="work-card-desc">Mothers in Cuba document everyday life on the island for audiences abroad.</div>
+            <div class="work-card-tags"><span class="beat-tag international">International</span><span class="beat-tag culture">Culture</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=VYEEx0PMvJ4" target="_blank" rel="noopener" data-tags="tech politics">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">AI political ad stirs controversy ahead of California debates</div>
+            <div class="work-card-desc">An AI-generated campaign ad draws scrutiny in the run-up to California's debates.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/maha-moms-are-protesting-against-pesticides-262423109920" target="_blank" rel="noopener" data-tags="politics health">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">MAHA moms are protesting against pesticides</div>
+            <div class="work-card-desc">Mothers in the &ldquo;Make America Healthy Again&rdquo; movement rally against pesticide use.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span><span class="beat-tag health">Health</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/what-are-peptides-and-why-is-the-fda-considering-easing-limits-261857349531" target="_blank" rel="noopener" data-tags="health">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Peptides surge in popularity as doctors urge caution</div>
+            <div class="work-card-desc">Peptide use is rising as the FDA weighs easing limits and physicians counsel care.</div>
+            <div class="work-card-tags"><span class="beat-tag health">Health</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://vimeo.com/1180574927" target="_blank" rel="noopener" data-tags="tech">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">The Guinndex</div>
+            <div class="work-card-desc">A produced segment for NBC News.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=0TwA5ttBAhU" target="_blank" rel="noopener" data-tags="tech politics">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Video Package</div>
+            <div class="work-card-title">Americans given NDAs from an AI data center company</div>
+            <div class="work-card-desc">The broadcast version of the data-center NDA investigation.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
 
         <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener" data-tags="tech politics">
           <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Investigative</span></div></div>
@@ -930,9 +1163,16 @@
       <p class="section-intro">On-camera broadcast reporting and digital articles for NBC News, TVB, and the Yale Daily News.</p>
 
       <div class="showreel-wrap">
-        <iframe src="https://www.youtube.com/embed/bmONamGtpYo" title="Natalie Kainz broadcast showreel" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/XoS1jRrT4NU" title="Natalie Kainz broadcast showreel" allowfullscreen></iframe>
       </div>
-      <p class="showreel-note" style="margin-bottom: 48px;">In the summer of 2020, I interned for the English news channel of Television Broadcasts Limited — Hong Kong's largest television news network. I reported, wrote scripts, and presented stories that aired at 7:30 pm, covering the pandemic, politics, and features.</p>
+
+      <div class="tvb-block">
+        <figure class="tvb-photo">
+          <img src="2568144d-e5d0-47c2-943e-c268706c15ea.jpg" alt="Natalie Kainz reporting on camera for TVB in Hong Kong" loading="lazy" />
+          <figcaption>On assignment for TVB, Hong Kong · 2020</figcaption>
+        </figure>
+        <p class="showreel-note">In the summer of 2020, I interned for the English news channel of Television Broadcasts Limited — Hong Kong's largest television news network. I reported, wrote scripts, and presented stories that aired at 7:30 pm, covering the pandemic, politics, and features.</p>
+      </div>
 
       <div class="work-grid">
         <a class="work-card" href="https://www.youtube.com/watch?v=NTGP-JykjqA" target="_blank" rel="noopener">
@@ -1005,10 +1245,9 @@
 
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all" data-target="photo-grid">All</button>
-        <button class="filter-btn" data-filter="fashion" data-target="photo-grid">Fashion</button>
+        <button class="filter-btn" data-filter="street" data-target="photo-grid">Street</button>
         <button class="filter-btn" data-filter="travel" data-target="photo-grid">Travel</button>
         <button class="filter-btn" data-filter="photojournalism" data-target="photo-grid">Photojournalism</button>
-        <button class="filter-btn" data-filter="street" data-target="photo-grid">Street</button>
       </div>
 
       <div class="masonry-grid" id="photo-grid">
@@ -1093,11 +1332,6 @@
           <div class="masonry-overlay"></div>
         </div>
 
-        <div class="masonry-item" data-tags="photojournalism">
-          <img src="2568144d-e5d0-47c2-943e-c268706c15ea.jpg" alt="Reporting on camera for TVB, Hong Kong" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
         <div class="masonry-item" data-tags="travel">
           <img src="DSC00947.JPG" alt="Mossy stone stairway climbing a hillside garden, Japan" loading="lazy" />
           <div class="masonry-overlay"></div>
@@ -1169,72 +1403,27 @@
         </div>
 
         <div class="masonry-item" data-tags="street">
-          <img src="littlegirl.jpg" alt="Little girl" loading="lazy" />
+          <img src="littlegirl.jpg" alt="Toddler walking a painted line at a New Haven street event" loading="lazy" />
           <div class="masonry-overlay"></div>
         </div>
 
         <div class="masonry-item" data-tags="travel">
-          <img src="mongoliaeagle.jpg" alt="Mongolia eagle" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-        <div class="masonry-item" data-tags="fashion">
-          <img src="sabrinasnow.jpg" alt="Sabrina in snow" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-         <div class="masonry-item" data-tags="fashion">
-          <img src="zoeinred" alt="Zoe in red" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-          <div class="masonry-item" data-tags="fashion">
-          <img src="zoeinred2.jpg" alt="Zoe in red 2" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-          <div class="masonry-item" data-tags="fashion">
-          <img src="zoeinred3.pg" alt="Zoe in red 3" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-          <div class="masonry-item" data-tags="fashion">
-          <img src="zoeinred4.jpg" alt="Zoe in red 4" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-        <div class="masonry-item" data-tags="fashion">
-          <img src="SAB2.jpg" alt="Sabrina in snow 2" loading="lazy" />
+          <img src="snowmonkey.jpg" alt="Young Japanese macaque in a hot spring, Jigokudani, Nagano" loading="lazy" />
           <div class="masonry-overlay"></div>
         </div>
 
         <div class="masonry-item" data-tags="travel">
-          <img src="snowmonkey.jpg" alt="Snow monkey" loading="lazy" />
+          <img src="snowmonkey2.jpg" alt="Japanese macaque and juvenile beside a hot spring, Nagano" loading="lazy" />
           <div class="masonry-overlay"></div>
         </div>
 
-        <div class="masonry-item" data-tags="travel">
-          <img src="snowmonkey2.jpg" alt="Snow monkey 2" loading="lazy" />
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="tiananmen.jpg" alt="Candlelight vigil marking June 4 at Victoria Park, Hong Kong" loading="lazy" />
           <div class="masonry-overlay"></div>
         </div>
 
         <div class="masonry-item" data-tags="street">
-          <img src="girlatfoodstall.jpg" alt="Girl at food stall" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-        <div class="masonry-item" data-tags="photojournalism">
-          <img src="tiananmen.jpg" alt="Tiananmen" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-        <div class="masonry-item" data-tags="photojournalism">
-          <img src="tiananmen2.jpg" alt="Tiananmen 2" loading="lazy" />
-          <div class="masonry-overlay"></div>
-        </div>
-
-        <div class="masonry-item" data-tags="fashion">
-          <img src="zoelights.jpg" alt="Zoe lights" loading="lazy" />
+          <img src="zoelights.jpg" alt="Double-exposed portrait against neon signboards, Hong Kong" loading="lazy" />
           <div class="masonry-overlay"></div>
         </div>
 
@@ -1258,7 +1447,7 @@
           <a href="#" class="resume-link">Download Resume →</a>
         </div>
         <div class="about-photo">
-          <img src="./Screenshot 2026-02-25 195425.png" alt="Natalie Kainz" />
+          <img src="headerphoto.jpg" alt="Natalie Kainz on a New York street at golden hour" />
           <div class="about-photo-frame"></div>
         </div>
       </div>
