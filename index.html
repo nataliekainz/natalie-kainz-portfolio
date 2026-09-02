@@ -72,8 +72,34 @@
     .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
+    .hero-banner {
+      margin-top: 60px;
+      width: 100%;
+      height: clamp(300px, 46vh, 520px);
+      overflow: hidden;
+      position: relative;
+      background: var(--ink);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      display: block;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(245,240,232,0) 55%, rgba(245,240,232,0.55) 100%);
+      pointer-events: none;
+    }
+
     .hero {
-      padding: 140px 48px 80px;
+      padding: 72px 48px 80px;
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
@@ -100,23 +126,6 @@
       margin-bottom: 28px;
       color: var(--ink);
       font-style: normal;
-    }
-
-    .hero-header {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    .hero-header .hero-name { margin-bottom: 0; }
-
-    .hero-photo {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
     }
 
     .hero-bio {
@@ -283,18 +292,51 @@
 
     .work-card-thumb-placeholder {
       width: 100%; height: 100%;
+      position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #e8e2d8, #d4cdc3);
+      gap: 16px;
+      background-color: #ece5da;
+      background-image:
+        radial-gradient(rgba(26,23,20,0.06) 1px, transparent 1.5px),
+        linear-gradient(135deg, #f1ebe1 0%, #ddd3c6 100%);
+      background-size: 14px 14px, 100% 100%;
+      overflow: hidden;
+      transition: filter 0.3s ease;
     }
 
+    .work-card-thumb-placeholder::before {
+      content: "";
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      box-shadow:
+        0 0 0 5px rgba(253,250,245,0.55),
+        inset 0 0 0 4px rgba(253,250,245,0.55);
+      opacity: 0.85;
+    }
+
+    .work-card:hover .work-card-thumb-placeholder { filter: brightness(1.03); }
+
     .thumb-label {
+      position: relative;
       font-family: 'DM Mono', monospace;
       font-size: 0.6rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--warm-gray);
+      padding-top: 11px;
+    }
+
+    .thumb-label::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 22px; height: 1px;
+      background: var(--accent);
     }
 
     .work-card-body {
@@ -621,7 +663,8 @@
     @media (max-width: 860px) {
       nav { padding: 0 24px; }
       .nav-links { gap: 16px; }
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 110px 24px 60px; }
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 60px; }
+      .hero-banner { height: clamp(220px, 34vh, 320px); }
       .container { padding: 60px 24px; }
       .work-grid { grid-template-columns: 1fr 1fr; }
       .masonry-grid { columns: 2; }
@@ -657,13 +700,13 @@
 
   <!-- HERO -->
   <section id="top">
+    <div class="hero-banner">
+      <img src="headerphoto.jpg" alt="Natalie Kainz reporting" />
+    </div>
     <div class="hero">
       <div class="hero-text">
         <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
-        <div class="hero-header">
-          <img src="headerphoto.jpg" alt="Natalie Kainz" class="hero-photo">
-          <h1 class="hero-name">Natalie Kainz</h1>
-        </div>
+        <h1 class="hero-name">Natalie Kainz</h1>
         <p class="hero-bio">Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, politics, culture, and technology — from New York and Hong Kong.</p>
         <a href="#work" class="hero-cta">View My Work →</a>
       </div>
@@ -958,7 +1001,7 @@
         <div class="section-rule"></div>
       </div>
       <div class="section-title">Photography</div>
-      <p class="section-intro">Visual storytelling across Hong Kong, New Haven, and New York.</p>
+      <p class="section-intro">Visual storytelling from Hong Kong and New York to Cartagena, Japan, and the Alaskan coast.</p>
 
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all" data-target="photo-grid">All</button>
@@ -969,6 +1012,161 @@
       </div>
 
       <div class="masonry-grid" id="photo-grid">
+
+        <div class="masonry-item" data-tags="street">
+          <img src="chinatownstreet.JPG" alt="Lunar New Year lion dance under paper lanterns, Chinatown, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="IMG_9708.JPG" alt="Protester holding a hand-lettered banner at a Hong Kong march" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="01C9913A-B654-48E6-8A89-9E3A3E80E9DC.jpg" alt="Street canopied with colored umbrellas, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="DSC00921.JPG" alt="Temple rooftop above the city, Nara, Japan" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="IMG_4898.JPG" alt="Two sea otters rafting together, Alaska" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="F265A5E1-6FB4-4874-861C-E6817D3777B7.jpg" alt="Palenquera resting with her fruit bowls, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="DSC00309.JPG" alt="Chinatown in a snowstorm, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="IMG_9711.JPG" alt="Yellow ribbons tied to a fence outside a Hong Kong government building" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel street">
+          <img src="japanstreet.JPG" alt="Neon-lit covered shopping arcade at dusk, Osaka" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel street">
+          <img src="4EE752EB-8F87-4279-99B2-766C0582C105.jpg" alt="Workers repainting a cobalt-blue wall, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="RNI-Films-IMG-D3CF7AA4-36B3-4D29-AF1B-54217B28D21B.JPG" alt="Tossing a burst of powder snow into the air" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="0F7AFA60-A15C-4E4B-BD31-CFD7B9136C43.jpg" alt="Cyclist in the bike lane below the Manhattan Bridge" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="IMG_9707.JPG" alt="Older demonstrators cheering at a Hong Kong march" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="6549B15D-A4DF-44BF-B984-BE85BF1A4021.jpg" alt="Lantern-hung arcade with craft vendors, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="DSC00466.JPG" alt="Two pigeons on snow-topped bollards, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="9AC24997-7365-47CF-A6A7-550AC5FC5C79.jpg" alt="Mist through a stand of tall conifers, Washington" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="2568144d-e5d0-47c2-943e-c268706c15ea.jpg" alt="Reporting on camera for TVB, Hong Kong" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="DSC00947.JPG" alt="Mossy stone stairway climbing a hillside garden, Japan" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="A6B7A1A1-4B8F-48C0-8414-DA5F31B1A3CC.jpg" alt="Snow-capped peak across the water at dusk, Alaska" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel street">
+          <img src="FFC5BB06-F57C-497E-A4DA-7FB76B9E5362.jpg" alt="Street lined with paintings for sale, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="DSC00323.JPG" alt="Walking a dog through the blizzard, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="IMG_9712.JPG" alt="Elderly marchers with a banner supporting Hong Kong's youth" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="D68D440F-D128-4933-A1CF-231DDE03D5DC.jpg" alt="Magnolia in bloom framed by a window, with a Gothic tower beyond, Yale" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="RNI-Films-IMG-7E2E2A4C-99AA-42C3-822E-95B328D1540D.JPG" alt="Pausing while shoveling during a snowfall" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel street">
+          <img src="14A87E65-6144-48DC-81EA-8C73C13E5C69.jpg" alt="Leaning into a barred window on a turquoise wall, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="DSC00475.JPG" alt="Flock of pigeons in the snow outside a colonnade, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="photojournalism">
+          <img src="IMG_9709.JPG" alt="Marcher holding a news photo placard, Hong Kong" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="IMG_4745.JPG" alt="White bluff-top house above Cook Inlet, Alaska" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel street">
+          <img src="523D0E06-0492-48B3-BEF8-3AAA29A5C48A.jpg" alt="Peering into a barred turquoise window, Cartagena" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="street">
+          <img src="DSC00520.JPG" alt="Pigeons taking flight in the snow, New York" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
+
+        <div class="masonry-item" data-tags="travel">
+          <img src="RNI-Films-IMG-5E2A84F7-EAFD-4DB7-8ACB-72FF358EC133.JPG" alt="Winterberries under fresh snow" loading="lazy" />
+          <div class="masonry-overlay"></div>
+        </div>
 
         <div class="masonry-item" data-tags="street">
           <img src="littlegirl.jpg" alt="Little girl" loading="lazy" />
