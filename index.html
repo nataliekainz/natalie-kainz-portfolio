@@ -85,7 +85,7 @@
     .hero {
       max-width: 700px;
       margin: 0 auto;
-      padding: 132px 24px 76px;
+      padding: 40px 24px 76px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -94,18 +94,20 @@
 
     .hero-collage {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
-      margin-bottom: 46px;
-      padding-top: 16px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 122px 24px 4px;
     }
 
     .snap {
       position: relative;
       flex: 0 0 auto;
       background: #fff;
-      padding: 9px 9px 11px;
-      box-shadow: 0 12px 24px rgba(26, 23, 20, 0.18);
+      padding: 10px 10px 12px;
+      box-shadow: 0 14px 28px rgba(26, 23, 20, 0.18);
     }
 
     .snap img {
@@ -119,41 +121,41 @@
     .snap::after {
       content: "";
       position: absolute;
-      top: -11px;
-      width: 58px;
-      height: 22px;
+      top: -12px;
+      width: 70px;
+      height: 25px;
       background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(213,202,177,0.55));
       border: 1px solid rgba(255,255,255,0.35);
       box-shadow: 0 1px 3px rgba(26,23,20,0.12);
     }
 
-    .snap::before { left: 10px; transform: rotate(-27deg); }
-    .snap::after  { right: 10px; transform: rotate(25deg); }
+    .snap::before { left: 12px; transform: rotate(-27deg); }
+    .snap::after  { right: 12px; transform: rotate(25deg); }
 
     .snap:nth-child(1) {
-      width: 170px;
-      transform: rotate(-6deg);
-      margin: 62px -18px 0 0;
+      width: 238px;
+      transform: rotate(-7deg);
+      margin: 28px 16px 0 0;
       z-index: 1;
     }
 
     .snap:nth-child(2) {
-      width: 344px;
+      width: 356px;
       transform: rotate(2deg);
       z-index: 3;
     }
 
     .snap:nth-child(2)::before,
     .snap:nth-child(2)::after {
-      width: 92px;
+      width: 96px;
       height: 30px;
       top: -15px;
     }
 
     .snap:nth-child(3) {
-      width: 170px;
+      width: 238px;
       transform: rotate(7deg);
-      margin: 74px 0 0 -18px;
+      margin: 46px 0 0 16px;
       z-index: 2;
     }
 
@@ -240,8 +242,8 @@
     /* ── CITY DOODLE ── */
     .hero-doodle {
       color: var(--accent);
-      max-width: 232px;
-      margin: 0 auto 52px;
+      max-width: 244px;
+      margin: 8px auto 52px;
     }
 
     .hero-doodle svg {
@@ -289,15 +291,19 @@
 
     .hero-doodle a:focus-visible { outline: none; }
 
-    @media (min-width: 1320px) {
+    @media (min-width: 1220px) {
       .hero-doodle {
         position: absolute;
-        top: 150px;
-        left: calc(50% + 368px);
-        width: 228px;
+        top: 470px;
+        left: calc(50% + 358px);
+        width: 216px;
         max-width: none;
         margin: 0;
       }
+    }
+
+    @media (min-width: 1480px) {
+      .hero-doodle { left: calc(50% + 388px); width: 236px; top: 452px; }
     }
 
     /* ── PLACE SECTIONS ── */
@@ -811,14 +817,18 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero { animation: fadeUp 0.7s ease both; }
-    .hero-stats { animation: fadeUp 0.7s 0.15s ease both; }
+    .hero-collage { animation: fadeUp 0.7s ease both; }
+    .hero { animation: fadeUp 0.7s 0.1s ease both; }
+    .hero-stats { animation: fadeUp 0.7s 0.2s ease both; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       nav { padding: 0 24px; }
       .nav-links { gap: 16px; }
-      .hero { padding: 104px 22px 56px; }
+      .hero { padding: 36px 22px 56px; }
+      .hero-collage { max-width: none; padding: 108px 16px 4px; }
+      .snap:nth-child(1), .snap:nth-child(3) { width: 176px; margin-top: 20px; }
+      .snap:nth-child(2) { width: 252px; }
       .hero-stats { grid-template-columns: 1fr; gap: 22px; padding-bottom: 64px; }
       .tvb-block { grid-template-columns: 1fr; gap: 24px; }
       .tvb-photo { max-width: 420px; }
@@ -838,11 +848,11 @@
       .hero-name { font-size: 2.6rem; }
       .work-grid { grid-template-columns: 1fr; }
       .masonry-grid { columns: 1; }
-      .hero-collage { flex-wrap: wrap; gap: 36px; padding-top: 20px; }
-      .snap:nth-child(1), .snap:nth-child(3) { margin: 0; width: 210px; }
-      .snap:nth-child(2) { margin: 0; width: 290px; }
+      .hero-collage { gap: 30px; padding: 100px 16px 0; }
+      .snap:nth-child(1), .snap:nth-child(3) { margin: 0; width: 218px; }
+      .snap:nth-child(2) { margin: 0; width: 288px; }
       .place-photos { grid-template-columns: repeat(2, 1fr); }
-      .hero-doodle { max-width: 190px; }
+      .hero-doodle { max-width: 188px; }
     }
   </style>
 </head>
@@ -863,56 +873,84 @@
 
   <!-- HERO -->
   <section id="top">
+    <div class="hero-collage">
+      <div class="snap"><img src="natalieatnightly.jpg" alt="Natalie Kainz at the NBC Nightly News anchor desk" /></div>
+      <div class="snap"><img src="headerphoto.jpg" alt="Natalie Kainz on a New York street at golden hour" /></div>
+      <div class="snap"><img src="2568144d-e5d0-47c2-943e-c268706c15ea.jpg" alt="Natalie Kainz reporting on camera for TVB in Hong Kong" /></div>
+    </div>
     <div class="hero">
-      <div class="hero-collage">
-        <div class="snap"><img src="natalieatnightly.jpg" alt="Natalie Kainz at the NBC Nightly News anchor desk" /></div>
-        <div class="snap"><img src="headerphoto.jpg" alt="Natalie Kainz on a New York street at golden hour" /></div>
-        <div class="snap"><img src="2568144d-e5d0-47c2-943e-c268706c15ea.jpg" alt="Natalie Kainz reporting on camera for TVB in Hong Kong" /></div>
-      </div>
       <h1 class="hero-name">Natalie Kainz</h1>
       <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
-      <p class="hero-bio">Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, politics, culture, and technology — from New York and Hong Kong.</p>
+      <p class="hero-bio">Producer, reporter, and video journalist with newsroom experience across two continents. Currently: Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>.</p>
       <a href="#work" class="hero-cta">View My Work →</a>
     </div>
 
     <div class="hero-doodle" role="img" aria-label="A doodled path from Hong Kong to New Haven to New York, linking to my work in each city">
-      <svg viewBox="0 0 240 560" xmlns="http://www.w3.org/2000/svg">
-        <path class="trail" d="M52,104 C40,124 74,128 68,146 C62,164 28,158 34,180 C39,198 54,200 48,222"/>
-        <path class="trail" d="M50,306 C68,326 32,336 40,358 C47,378 76,374 66,396 C60,412 52,414 58,432"/>
+      <svg viewBox="0 0 220 470" xmlns="http://www.w3.org/2000/svg">
+        <!-- swirly dotted trails between the cities -->
+        <path class="trail" d="M58,124 C44,140 86,146 72,162 C62,174 44,170 50,190"/>
+        <path class="trail" d="M56,294 C72,310 34,318 46,336 C54,348 44,344 54,362"/>
 
-        <a href="#hong-kong" aria-label="Hong Kong — my work there">
-          <rect x="2" y="8" width="236" height="100" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <path class="trail" d="M6,101 q8,-6 16,0 t16,0 t16,0 t16,0 t16,0 t16,0"/>
-          <path class="path" d="M10,100 V72 H22 V54 H30 l4,-8 4,8 V62 H46 V40 H56 V66 H66 V48 H80 V30 H90 V60 H100 V74 H108"/>
-          <path class="path" d="M85,30 V19 M51,40 V32"/>
-          <path class="path" d="M14,84 h6 M60,52 h4 M84,44 h4"/>
-          <text x="118" y="58">Hong Kong</text>
-          <path class="path" d="M118,66 q11,5 22,0 t22,0"/>
+        <!-- HONG KONG: pavilion, firework, Bank of China tower, rounded tower, curved tower -->
+        <a href="#hong-kong" aria-label="Hong Kong — see my work there">
+          <rect x="0" y="0" width="220" height="128" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <text x="6" y="20">Hong Kong</text>
+          <path class="path" d="M6,26 q16,5 32,0 t32,0"/>
+          <path class="path" d="M6,120 H214 M6,120 V114 M214,120 V114"/>
+          <path class="path" d="M60,54 V42 M60,54 70,45 M60,54 73,54 M60,54 70,63 M60,54 60,67 M60,54 50,63 M60,54 47,54 M60,54 50,45"/>
+          <path class="path" d="M12,72 Q26,61 30,66 L37,52 Q42,46 47,52 L54,66 Q58,61 72,72"/>
+          <path class="path" d="M42,52 V44"/>
+          <path class="path" d="M18,72 H66"/>
+          <path class="path fillwash" d="M28,72 V92 H56 V72"/>
+          <path class="path" d="M28,82 H56 M24,92 H60"/>
+          <path class="path" d="M28,92 V120 M42,92 V120 M56,92 V120"/>
+          <path class="path fillwash" d="M86,120 V66 L100,38 L114,66 V120"/>
+          <path class="path" d="M100,38 V120 M86,66 L114,92 M114,66 L86,92 M86,92 L114,114 M114,92 L86,114"/>
+          <path class="path" d="M96,38 V26 M104,38 V28"/>
+          <path class="path fillwash" d="M122,120 V62 Q135,48 148,62 V120"/>
+          <path class="path" d="M124,68 H146 M124,76 H146 M124,84 H146"/>
+          <path class="path fillwash" d="M156,120 V58 Q172,48 188,56 L192,120 Z"/>
+          <path class="path" d="M158,72 Q173,64 189,70 M157,86 Q173,78 190,84 M156,100 Q173,92 191,98 M168,120 V64 M178,120 V59"/>
+          <path class="path" d="M172,44 Q172,36 180,38 Q183,30 192,35 Q201,35 199,44"/>
         </a>
 
-        <a href="#new-haven" aria-label="New Haven — my work there">
-          <rect x="2" y="214" width="236" height="98" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <path class="path" d="M14,300 V286"/>
-          <path class="path fillwash" d="M14,286 q-11,-1 -10,-12 q-2,-11 11,-11 q11,-4 12,7 q6,7 -3,13 q-2,7 -10,3 Z"/>
-          <path class="path fillwash" d="M40,300 V236 H60 V300"/>
-          <path class="path" d="M40,236 v-6 m6,6 v-9 m7,9 v-9 m7,9 v-6 m-9,6 v-13 m-2,0 h4"/>
-          <path class="path" d="M46,236 V300 M53,236 V300 M40,250 H60"/>
-          <path class="path fillwash" d="M66,300 V276 L76,266 L86,276 V300 Z"/>
-          <path class="path" d="M76,266 V258"/>
-          <text x="106" y="262">New Haven</text>
-          <path class="path" d="M106,270 q11,5 22,0 t22,0"/>
+        <!-- NEW HAVEN: Harkness Tower crown, a dome, spires, brick blocks -->
+        <a href="#new-haven" aria-label="New Haven — see my work there">
+          <rect x="0" y="146" width="220" height="150" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <text x="6" y="176">New Haven</text>
+          <path class="path" d="M6,182 q16,5 32,0 t32,0"/>
+          <path class="path" d="M6,290 H214"/>
+          <path class="path fillwash" d="M8,290 V256 H18 V248 H26 V256 H32 V290"/>
+          <path class="path" d="M11,264 H29 M11,274 H29"/>
+          <path class="path fillwash" d="M36,290 V238 H50 V290"/>
+          <path class="path" d="M38,238 V232 H48 V238"/>
+          <path class="path fillwash" d="M54,290 V248 L64,236 L74,248 V290 Z"/>
+          <path class="path" d="M64,236 V228"/>
+          <path class="path fillwash" d="M84,290 V202 H102 V290"/>
+          <path class="path" d="M84,202 v-9 m4,9 v-15 m5,15 v-9 m5,9 v-15 m4,15 v-9 m-11,-5 l5,-11 l5,11"/>
+          <path class="path" d="M93,202 V290 M84,228 H102 M84,256 H102"/>
+          <path class="path fillwash" d="M87,264 h4 v10 h-4 z M95,264 h4 v10 h-4 z"/>
+          <path class="path fillwash" d="M108,290 V256 H138 V290"/>
+          <path class="path" d="M108,256 Q123,232 138,256"/>
+          <path class="path" d="M120,240 V232 M118,236 h6 M121,232 l-2,-6 4,0 z"/>
+          <path class="path" d="M150,290 V246 M144,246 H156 M147,246 l3,-13 l3,13"/>
+          <path class="path fillwash" d="M162,290 V258 H176 V290"/>
+          <path class="path fillwash" d="M180,290 V268 H194 V290"/>
+          <path class="path" d="M198,290 V276 H210 V290"/>
         </a>
 
-        <a href="#new-york" aria-label="New York — my work there">
-          <rect x="2" y="420" width="236" height="118" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <path class="path fillwash" d="M14,506 V464 H32 V506"/>
-          <path class="path" d="M18,464 v-6 h10 v6"/>
-          <path class="path fillwash" d="M42,506 V452 H58 V440 H66 V432 H70 V440 H78 V452 H94 V506"/>
-          <path class="path" d="M74,432 V418"/>
-          <path class="path fillwash" d="M98,506 V470 H112 V506"/>
-          <path class="path" d="M46,470 h12 M46,486 h12"/>
-          <text x="120" y="474">New York</text>
-          <path class="path" d="M120,482 q10,5 20,0 t20,0"/>
+        <!-- NEW YORK: one continuous line, Empire State spike, Brooklyn Bridge -->
+        <a href="#new-york" aria-label="New York — see my work there">
+          <rect x="0" y="316" width="220" height="152" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <text x="6" y="346">New York</text>
+          <path class="path" d="M6,352 q16,5 32,0 t32,0"/>
+          <path class="path" d="M4,456 L4,434 L10,434 L11,422 L18,422 L19,430 L26,430 L27,408 L34,408 L35,396 L40,396 L41,382 L48,410 L52,410 L53,392 L59,392 L60,372 L64,372 L65,356 L68,366 L70,372 L76,372 L77,386 L83,386 L84,366 L91,366 L92,382 L99,382 L100,360 L107,360 L108,388 L115,388 L116,372 L125,372 L126,394 L133,394 L134,378 L143,378 L143,456"/>
+          <path class="path" d="M65,356 V340"/>
+          <path class="path" d="M158,456 V398 M182,456 V394"/>
+          <path class="path" d="M158,398 l-4,6 m4,-6 l4,6 M182,394 l-4,6 m4,-6 l4,6"/>
+          <path class="path" d="M158,402 L182,398"/>
+          <path class="path" d="M138,440 Q170,396 202,438"/>
+          <path class="path" d="M138,456 Q170,422 202,456"/>
         </a>
       </svg>
     </div>
@@ -959,7 +997,7 @@
       <div class="work-grid" id="work-grid">
 
         <a class="work-card" href="https://www.nbcnews.com/video/humanoid-robots-cleaning-homes-for-30-an-hour-269041733517" target="_blank" rel="noopener" data-tags="tech">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-humanoid-robots.jpg" alt="Two humanoid robots tidying a modern kitchen" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">Humanoid robots are cleaning homes for $30 an hour</div>
@@ -970,7 +1008,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/DRS-kaKGaSY?t=1179" target="_blank" rel="noopener" data-tags="legal">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Legal Panel</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-lindsay-clancy-panel.jpg" alt="Two analysts at the NBC News desk during a breaking-news legal panel" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Legal Panel</div>
             <div class="work-card-title">Legal expert panel: the Lindsay Clancy trial</div>
@@ -981,7 +1019,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/DRS-kaKGaSY?t=2437" target="_blank" rel="noopener" data-tags="health">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-free-birth.jpg" alt="NBC News anchor beside a &lsquo;Doctors warn of free birth risks&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">Doctors warn of the risks of &ldquo;free birth&rdquo;</div>
@@ -992,7 +1030,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/E2wWQjLPolg" target="_blank" rel="noopener" data-tags="legal tech">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Newsmakers</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-meta-settlement.jpg" alt="Split screen of an NBC anchor and an interviewee under a &lsquo;Meta settles for $18 billion&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Newsmakers</div>
             <div class="work-card-title">Meta settles for $18 billion in child safety trial</div>
@@ -1003,7 +1041,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/E2wWQjLPolg?t=1990" target="_blank" rel="noopener" data-tags="health">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-busy-philipps.jpg" alt="Busy Philipps beside a People headline about her brain tumor diagnosis" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">Busy Philipps shares her brain tumor diagnosis</div>
@@ -1025,7 +1063,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/WhVrChMBHjM" target="_blank" rel="noopener" data-tags="education">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Debate</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-umich-grades.jpg" alt="NBC anchor beside a University of Michigan block M and a &lsquo;drop first semester grades&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Debate</div>
             <div class="work-card-title">University of Michigan ditches grades for first-semester students</div>
@@ -1035,8 +1073,8 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.youtube.com/watch?v=Z1viZPpB0us" target="_blank" rel="noopener" data-tags="science">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+        <a class="work-card" href="https://youtu.be/Z1viZPpB0us?t=2337" target="_blank" rel="noopener" data-tags="science">
+          <div class="work-card-thumb"><img src="thumb-caribbean-volcano.jpg" alt="NBC anchor beside footage of a steaming volcano under a &lsquo;Deadly volcano reawakening?&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">Could a deadly Caribbean volcano roar back to life?</div>
@@ -1047,7 +1085,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/-FNlXH4sf1M?t=2513" target="_blank" rel="noopener" data-tags="tech">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-ai-poker.jpg" alt="NBC anchor beside a poker player and a &lsquo;Can A.I. call your bluff?&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">The AI tool built to win at poker</div>
@@ -1058,7 +1096,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/swimmer-breaks-world-record-at-billionaire-backed-enhanced-games-263912517998" target="_blank" rel="noopener" data-tags="sports">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-enhanced-games-package.jpg" alt="Swimmers diving off the blocks at the Enhanced Games in Las Vegas" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">Swimmer &lsquo;breaks&rsquo; a world record at the billionaire-backed Enhanced Games</div>
@@ -1069,7 +1107,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/enhanced-games-chief-of-sport-says-drug-fueled-sporting-competition-is-about-athletes-pursuing-their-human-potential-263843397538" target="_blank" rel="noopener" data-tags="sports">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-enhanced-games-segment.jpg" alt="NBC anchor beside Enhanced Games pool footage under a &lsquo;Controversial drug-enhanced games&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">Enhanced Games chief of sport on athletes &lsquo;pursuing their human potential&rsquo;</div>
@@ -1080,7 +1118,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/data-center-approved-in-utah-despite-community-protests-262958661826" target="_blank" rel="noopener" data-tags="tech politics">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-utah-data-center.jpg" alt="A packed town-hall meeting under a &lsquo;Kevin O&rsquo;Leary&rsquo;s data center project moves forward&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">Utah data center wins approval despite community protests</div>
@@ -1091,7 +1129,7 @@
         </a>
 
         <a class="work-card" href="https://www.youtube.com/watch?v=rQLTg_0cv_k" target="_blank" rel="noopener" data-tags="international culture">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-cuban-moms.jpg" alt="Three phone-video stills of a woman at home under a &lsquo;Moms document life inside communist Cuba&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">Cuban moms use social media to show life in Cuba</div>
@@ -1102,7 +1140,7 @@
         </a>
 
         <a class="work-card" href="https://www.youtube.com/watch?v=VYEEx0PMvJ4" target="_blank" rel="noopener" data-tags="tech politics">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-ai-campaign-ad.jpg" alt="An AI-generated image of a man in a Batman costume under a &lsquo;Spencer Pratt reposts viral AI campaign ad&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">AI political ad stirs controversy ahead of California debates</div>
@@ -1113,7 +1151,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/maha-moms-are-protesting-against-pesticides-262423109920" target="_blank" rel="noopener" data-tags="politics health">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-maha-moms.jpg" alt="A phone video of women at the Capitol beside large &lsquo;MAHA MOMS&rsquo; text, under a &lsquo;Trump&rsquo;s pesticide policy splits the MAHA movement&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">MAHA moms are protesting against pesticides</div>
