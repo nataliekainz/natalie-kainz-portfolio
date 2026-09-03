@@ -133,9 +133,9 @@
     .snap::after  { right: 12px; transform: rotate(25deg); }
 
     .snap:nth-child(1) {
-      width: 238px;
+      width: 236px;
       transform: rotate(-7deg);
-      margin: 28px 16px 0 0;
+      margin: 20px 24px 0 0;
       z-index: 1;
     }
 
@@ -153,9 +153,9 @@
     }
 
     .snap:nth-child(3) {
-      width: 238px;
+      width: 236px;
       transform: rotate(7deg);
-      margin: 46px 0 0 16px;
+      margin: 40px 0 0 24px;
       z-index: 2;
     }
 
@@ -242,8 +242,9 @@
     /* ── CITY DOODLE ── */
     .hero-doodle {
       color: var(--accent);
-      max-width: 244px;
-      margin: 8px auto 52px;
+      width: 100%;
+      max-width: 600px;
+      margin: 4px auto 12px;
     }
 
     .hero-doodle svg {
@@ -277,9 +278,10 @@
 
     .hero-doodle a text {
       font-family: 'Caveat', cursive;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 700;
       fill: var(--warm-gray);
+      text-anchor: middle;
       transition: fill 0.2s;
     }
 
@@ -290,21 +292,6 @@
     .hero-doodle a:focus-visible .path { stroke: var(--ink); }
 
     .hero-doodle a:focus-visible { outline: none; }
-
-    @media (min-width: 1220px) {
-      .hero-doodle {
-        position: absolute;
-        top: 470px;
-        left: calc(50% + 358px);
-        width: 216px;
-        max-width: none;
-        margin: 0;
-      }
-    }
-
-    @media (min-width: 1480px) {
-      .hero-doodle { left: calc(50% + 388px); width: 236px; top: 452px; }
-    }
 
     /* ── PLACE SECTIONS ── */
     .place-photos {
@@ -852,7 +839,6 @@
       .snap:nth-child(1), .snap:nth-child(3) { margin: 0; width: 218px; }
       .snap:nth-child(2) { margin: 0; width: 288px; }
       .place-photos { grid-template-columns: repeat(2, 1fr); }
-      .hero-doodle { max-width: 188px; }
     }
   </style>
 </head>
@@ -882,75 +868,74 @@
       <h1 class="hero-name">Natalie Kainz</h1>
       <div class="hero-eyebrow">Multimedia Journalist &amp; Producer</div>
       <p class="hero-bio">Producer, reporter, and video journalist with newsroom experience across two continents. Currently: Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>.</p>
-      <a href="#work" class="hero-cta">View My Work →</a>
+      <a href="#work" class="hero-cta">Check out my work →</a>
     </div>
 
     <div class="hero-doodle" role="img" aria-label="A doodled path from Hong Kong to New Haven to New York, linking to my work in each city">
-      <svg viewBox="0 0 220 470" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 720 158" xmlns="http://www.w3.org/2000/svg">
         <!-- swirly dotted trails between the cities -->
-        <path class="trail" d="M58,124 C44,140 86,146 72,162 C62,174 44,170 50,190"/>
-        <path class="trail" d="M56,294 C72,310 34,318 46,336 C54,348 44,344 54,362"/>
+        <path class="trail" d="M188,66 q16,-20 30,-8 q14,14 28,0 q14,-14 26,0 q8,6 12,8"/>
+        <path class="trail" d="M458,66 q16,-20 30,-8 q14,14 28,0 q14,-14 22,0 q8,6 12,8"/>
 
         <!-- HONG KONG: pavilion, firework, Bank of China tower, rounded tower, curved tower -->
-        <a href="#hong-kong" aria-label="Hong Kong — see my work there">
-          <rect x="0" y="0" width="220" height="128" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <text x="6" y="20">Hong Kong</text>
-          <path class="path" d="M6,26 q16,5 32,0 t32,0"/>
-          <path class="path" d="M6,120 H214 M6,120 V114 M214,120 V114"/>
-          <path class="path" d="M60,54 V42 M60,54 70,45 M60,54 73,54 M60,54 70,63 M60,54 60,67 M60,54 50,63 M60,54 47,54 M60,54 50,45"/>
-          <path class="path" d="M12,72 Q26,61 30,66 L37,52 Q42,46 47,52 L54,66 Q58,61 72,72"/>
-          <path class="path" d="M42,52 V44"/>
-          <path class="path" d="M18,72 H66"/>
-          <path class="path fillwash" d="M28,72 V92 H56 V72"/>
-          <path class="path" d="M28,82 H56 M24,92 H60"/>
-          <path class="path" d="M28,92 V120 M42,92 V120 M56,92 V120"/>
-          <path class="path fillwash" d="M86,120 V66 L100,38 L114,66 V120"/>
-          <path class="path" d="M100,38 V120 M86,66 L114,92 M114,66 L86,92 M86,92 L114,114 M114,92 L86,114"/>
-          <path class="path" d="M96,38 V26 M104,38 V28"/>
-          <path class="path fillwash" d="M122,120 V62 Q135,48 148,62 V120"/>
-          <path class="path" d="M124,68 H146 M124,76 H146 M124,84 H146"/>
-          <path class="path fillwash" d="M156,120 V58 Q172,48 188,56 L192,120 Z"/>
-          <path class="path" d="M158,72 Q173,64 189,70 M157,86 Q173,78 190,84 M156,100 Q173,92 191,98 M168,120 V64 M178,120 V59"/>
-          <path class="path" d="M172,44 Q172,36 180,38 Q183,30 192,35 Q201,35 199,44"/>
+        <a href="#hong-kong" transform="translate(6,4)" aria-label="Hong Kong — see my work there">
+          <rect x="-4" y="-8" width="188" height="150" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="path" d="M0,100 H180 M0,100 V94 M180,100 V94"/>
+          <path class="path" d="M48,26 V16 M48,26 56,18 M48,26 59,26 M48,26 56,34 M48,26 48,38 M48,26 40,34 M48,26 37,26 M48,26 40,18"/>
+          <path class="path" d="M4,50 Q16,40 20,45 L26,32 Q30,27 34,32 L40,45 Q44,40 56,50"/>
+          <path class="path" d="M30,32 V25"/>
+          <path class="path" d="M9,50 H51"/>
+          <path class="path fillwash" d="M18,50 V72 H42 V50"/>
+          <path class="path" d="M18,61 H42 M14,72 H46"/>
+          <path class="path" d="M18,72 V100 M30,72 V100 M42,72 V100"/>
+          <path class="path fillwash" d="M66,100 V48 L78,24 L90,48 V100"/>
+          <path class="path" d="M78,24 V100 M66,48 L90,72 M90,48 L66,72 M66,72 L90,92 M90,72 L66,92"/>
+          <path class="path" d="M74,24 V12 M82,24 V14"/>
+          <path class="path fillwash" d="M98,100 V44 Q109,32 120,44 V100"/>
+          <path class="path" d="M100,50 H118 M100,58 H118 M100,66 H118"/>
+          <path class="path fillwash" d="M128,100 V40 Q142,30 156,38 L160,100 Z"/>
+          <path class="path" d="M130,52 Q144,44 158,50 M129,64 Q144,56 159,62 M128,78 Q144,70 160,76 M139,100 V44 M149,100 V39"/>
+          <path class="path" d="M144,26 Q144,18 152,20 Q155,12 164,17 Q173,17 171,26"/>
+          <text x="90" y="132">Hong Kong</text>
+          <path class="path" d="M62,138 q14,4 28,0 t28,0"/>
         </a>
 
         <!-- NEW HAVEN: Harkness Tower crown, a dome, spires, brick blocks -->
-        <a href="#new-haven" aria-label="New Haven — see my work there">
-          <rect x="0" y="146" width="220" height="150" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <text x="6" y="176">New Haven</text>
-          <path class="path" d="M6,182 q16,5 32,0 t32,0"/>
-          <path class="path" d="M6,290 H214"/>
-          <path class="path fillwash" d="M8,290 V256 H18 V248 H26 V256 H32 V290"/>
-          <path class="path" d="M11,264 H29 M11,274 H29"/>
-          <path class="path fillwash" d="M36,290 V238 H50 V290"/>
-          <path class="path" d="M38,238 V232 H48 V238"/>
-          <path class="path fillwash" d="M54,290 V248 L64,236 L74,248 V290 Z"/>
-          <path class="path" d="M64,236 V228"/>
-          <path class="path fillwash" d="M84,290 V202 H102 V290"/>
-          <path class="path" d="M84,202 v-9 m4,9 v-15 m5,15 v-9 m5,9 v-15 m4,15 v-9 m-11,-5 l5,-11 l5,11"/>
-          <path class="path" d="M93,202 V290 M84,228 H102 M84,256 H102"/>
-          <path class="path fillwash" d="M87,264 h4 v10 h-4 z M95,264 h4 v10 h-4 z"/>
-          <path class="path fillwash" d="M108,290 V256 H138 V290"/>
-          <path class="path" d="M108,256 Q123,232 138,256"/>
-          <path class="path" d="M120,240 V232 M118,236 h6 M121,232 l-2,-6 4,0 z"/>
-          <path class="path" d="M150,290 V246 M144,246 H156 M147,246 l3,-13 l3,13"/>
-          <path class="path fillwash" d="M162,290 V258 H176 V290"/>
-          <path class="path fillwash" d="M180,290 V268 H194 V290"/>
-          <path class="path" d="M198,290 V276 H210 V290"/>
+        <a href="#new-haven" transform="translate(276,4)" aria-label="New Haven — see my work there">
+          <rect x="-8" y="-14" width="196" height="156" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="path" d="M0,100 H180"/>
+          <path class="path fillwash" d="M2,100 V66 H12 V58 H20 V66 H26 V100"/>
+          <path class="path" d="M5,74 H23 M5,84 H23"/>
+          <path class="path fillwash" d="M30,100 V48 H44 V100"/>
+          <path class="path" d="M32,48 V42 H42 V48"/>
+          <path class="path fillwash" d="M48,100 V58 L58,46 L68,58 V100 Z"/>
+          <path class="path" d="M58,46 V38"/>
+          <path class="path fillwash" d="M76,100 V16 H94 V100"/>
+          <path class="path" d="M76,16 v-8 m4,8 v-13 m5,13 v-8 m5,8 v-13 m4,13 v-8 m-11,-4 l5,-10 l5,10"/>
+          <path class="path" d="M85,16 V100 M76,40 H94 M76,64 H94"/>
+          <path class="path fillwash" d="M79,72 h4 v9 h-4 z M87,72 h4 v9 h-4 z"/>
+          <path class="path fillwash" d="M100,100 V64 H130 V100"/>
+          <path class="path" d="M100,64 Q115,40 130,64"/>
+          <path class="path" d="M112,48 V40 M110,44 h6 M113,40 l-2,-6 4,0 z"/>
+          <path class="path" d="M140,100 V54 M134,54 H146 M137,54 l3,-13 l3,13"/>
+          <path class="path fillwash" d="M152,100 V66 H164 V100"/>
+          <path class="path fillwash" d="M168,100 V78 H180 V100"/>
+          <text x="90" y="132">New Haven</text>
+          <path class="path" d="M60,138 q15,4 30,0 t30,0"/>
         </a>
 
         <!-- NEW YORK: one continuous line, Empire State spike, Brooklyn Bridge -->
-        <a href="#new-york" aria-label="New York — see my work there">
-          <rect x="0" y="316" width="220" height="152" fill="#fff" fill-opacity="0" pointer-events="all"/>
-          <text x="6" y="346">New York</text>
-          <path class="path" d="M6,352 q16,5 32,0 t32,0"/>
-          <path class="path" d="M4,456 L4,434 L10,434 L11,422 L18,422 L19,430 L26,430 L27,408 L34,408 L35,396 L40,396 L41,382 L48,410 L52,410 L53,392 L59,392 L60,372 L64,372 L65,356 L68,366 L70,372 L76,372 L77,386 L83,386 L84,366 L91,366 L92,382 L99,382 L100,360 L107,360 L108,388 L115,388 L116,372 L125,372 L126,394 L133,394 L134,378 L143,378 L143,456"/>
-          <path class="path" d="M65,356 V340"/>
-          <path class="path" d="M158,456 V398 M182,456 V394"/>
-          <path class="path" d="M158,398 l-4,6 m4,-6 l4,6 M182,394 l-4,6 m4,-6 l4,6"/>
-          <path class="path" d="M158,402 L182,398"/>
-          <path class="path" d="M138,440 Q170,396 202,438"/>
-          <path class="path" d="M138,456 Q170,422 202,456"/>
+        <a href="#new-york" transform="translate(546,4)" aria-label="New York — see my work there">
+          <rect x="-8" y="-10" width="196" height="152" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="path" d="M0,100 L0,80 L6,80 L7,70 L13,70 L14,78 L20,78 L21,58 L27,58 L28,48 L32,48 L33,38 L39,64 L43,64 L44,46 L49,46 L50,28 L53,16 L56,28 L57,46 L62,46 L63,54 L67,54 L68,42 L73,42 L74,54 L79,54 L80,40 L85,40 L86,58 L91,58 L92,48 L99,48 L100,64 L104,64 L104,100"/>
+          <path class="path" d="M53,16 V4"/>
+          <path class="path" d="M120,100 V56 M140,100 V52"/>
+          <path class="path" d="M120,56 l-3,5 m3,-5 l3,5 M140,52 l-3,5 m3,-5 l3,5"/>
+          <path class="path" d="M120,60 L140,56"/>
+          <path class="path" d="M104,86 Q130,50 156,84"/>
+          <path class="path" d="M104,100 Q130,68 156,100"/>
+          <text x="88" y="132">New York</text>
+          <path class="path" d="M60,138 q14,4 28,0 t28,0"/>
         </a>
       </svg>
     </div>
@@ -1052,7 +1037,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/video/thousands-of-americans-roll-the-dice-on-travel-with-viral-mystery-vacation-trend-268347461583" target="_blank" rel="noopener" data-tags="culture">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Video Package</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-mystery-vacation.jpg" alt="A Frontier Airlines jet landing, from a report on viral $300 &lsquo;mystery vacation&rsquo; trips" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
             <div class="work-card-title">Americans roll the dice on travel with the viral &lsquo;mystery vacation&rsquo; trend</div>
@@ -1173,7 +1158,7 @@
         </a>
 
         <a class="work-card" href="https://vimeo.com/1180574927" target="_blank" rel="noopener" data-tags="tech">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-guinndex.jpg" alt="A pint of Guinness held up in a pub, from a report on an AI beer-price index in Ireland" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Segment</div>
             <div class="work-card-title">The Guinndex</div>
@@ -1228,7 +1213,7 @@
         </a>
 
         <a class="work-card" href="https://youtu.be/ERyFUyfmXzQ?si=n32wqbWbUCmBK0gv" target="_blank" rel="noopener" data-tags="tech culture">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-ai-band.jpg" alt="An NBC anchor beside a photo of a four-piece rock band under an &lsquo;Is this band A.I.?&rsquo; graphic" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Seemingly AI-generated band gains 700K+ monthly Spotify listeners</div>
@@ -1250,7 +1235,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener" data-tags="tech culture">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-christies-ai-art.jpg" alt="A speaker at a podium beside a screen of AI-generated pigeons at Christie's AI art auction" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
             <div class="work-card-title">Christie's AI art auction draws big-money bids — and thousands of protest signatures</div>
@@ -1261,7 +1246,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/now/video/demand-for-mocktails-on-the-rise-as-consumers-consider-alcohol-implications-230136901572" target="_blank" rel="noopener" data-tags="culture">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-mocktails.jpg" alt="A reporter at a bar lined with non-alcoholic drinks, from a report on the mocktail movement" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
             <div class="work-card-title">Demand for mocktails on the rise as consumers reconsider alcohol</div>
@@ -1283,7 +1268,7 @@
         </a>
 
         <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener" data-tags="tech politics">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-john-deere.jpg" alt="A reporter interviewing a farmer beside a green John Deere combine" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
             <div class="work-card-title">Right to Repair Revolution: Farmers challenge John Deere's control over equipment</div>
@@ -1305,7 +1290,7 @@
         </a>
 
         <a class="work-card" href="https://www.cnn.com/videos/tv/2022/07/26/going-green-melati-wijsen-youth-climate-indonesia-spc.cnn" target="_blank" rel="noopener" data-tags="culture international">
-          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">CNN International</span></div></div>
+          <div class="work-card-thumb"><img src="thumb-cnn-climate-activist.jpg" alt="A young activist walking along a black-sand beach, from CNN's Going Green" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">CNN International · Going Green</div>
             <div class="work-card-title">Meet the young entrepreneur harnessing Gen-Z power to fight climate change</div>
