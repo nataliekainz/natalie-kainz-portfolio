@@ -243,8 +243,8 @@
     .hero-doodle {
       color: var(--accent);
       width: 100%;
-      max-width: 600px;
-      margin: 4px auto 12px;
+      max-width: 150px;
+      margin: 8px auto 16px;
     }
 
     .hero-doodle svg {
@@ -278,7 +278,7 @@
 
     .hero-doodle a text {
       font-family: 'Caveat', cursive;
-      font-size: 21px;
+      font-size: 23px;
       font-weight: 700;
       fill: var(--warm-gray);
       text-anchor: middle;
@@ -292,6 +292,21 @@
     .hero-doodle a:focus-visible .path { stroke: var(--ink); }
 
     .hero-doodle a:focus-visible { outline: none; }
+
+    @media (min-width: 1200px) {
+      .hero-doodle {
+        position: absolute;
+        top: 442px;
+        left: calc(50% + 356px);
+        width: 148px;
+        max-width: none;
+        margin: 0;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .hero-doodle { left: calc(50% + 388px); width: 164px; top: 430px; }
+    }
 
     /* ── PLACE SECTIONS ── */
     .place-photos {
@@ -392,6 +407,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      order: 20;
       transition: background 0.2s;
     }
 
@@ -872,14 +888,14 @@
     </div>
 
     <div class="hero-doodle" role="img" aria-label="A doodled path from Hong Kong to New Haven to New York, linking to my work in each city">
-      <svg viewBox="0 0 720 158" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 200 430" xmlns="http://www.w3.org/2000/svg">
         <!-- swirly dotted trails between the cities -->
-        <path class="trail" d="M188,66 q16,-20 30,-8 q14,14 28,0 q14,-14 26,0 q8,6 12,8"/>
-        <path class="trail" d="M458,66 q16,-20 30,-8 q14,14 28,0 q14,-14 22,0 q8,6 12,8"/>
+        <path class="trail" d="M74,140 C60,150 94,156 80,166 C72,172 62,168 66,178"/>
+        <path class="trail" d="M74,280 C60,290 94,296 80,306 C72,312 62,308 66,318"/>
 
         <!-- HONG KONG: pavilion, firework, Bank of China tower, rounded tower, curved tower -->
-        <a href="#hong-kong" transform="translate(6,4)" aria-label="Hong Kong — see my work there">
-          <rect x="-4" y="-8" width="188" height="150" fill="#fff" fill-opacity="0" pointer-events="all"/>
+        <a href="#hong-kong" transform="translate(10,2)" aria-label="Hong Kong — see my work there">
+          <rect x="-6" y="-6" width="192" height="150" fill="#fff" fill-opacity="0" pointer-events="all"/>
           <path class="path" d="M0,100 H180 M0,100 V94 M180,100 V94"/>
           <path class="path" d="M48,26 V16 M48,26 56,18 M48,26 59,26 M48,26 56,34 M48,26 48,38 M48,26 40,34 M48,26 37,26 M48,26 40,18"/>
           <path class="path" d="M4,50 Q16,40 20,45 L26,32 Q30,27 34,32 L40,45 Q44,40 56,50"/>
@@ -901,8 +917,8 @@
         </a>
 
         <!-- NEW HAVEN: Harkness Tower crown, a dome, spires, brick blocks -->
-        <a href="#new-haven" transform="translate(276,4)" aria-label="New Haven — see my work there">
-          <rect x="-8" y="-14" width="196" height="156" fill="#fff" fill-opacity="0" pointer-events="all"/>
+        <a href="#new-haven" transform="translate(10,142)" aria-label="New Haven — see my work there">
+          <rect x="-6" y="-14" width="192" height="158" fill="#fff" fill-opacity="0" pointer-events="all"/>
           <path class="path" d="M0,100 H180"/>
           <path class="path fillwash" d="M2,100 V66 H12 V58 H20 V66 H26 V100"/>
           <path class="path" d="M5,74 H23 M5,84 H23"/>
@@ -925,8 +941,8 @@
         </a>
 
         <!-- NEW YORK: one continuous line, Empire State spike, Brooklyn Bridge -->
-        <a href="#new-york" transform="translate(546,4)" aria-label="New York — see my work there">
-          <rect x="-8" y="-10" width="196" height="152" fill="#fff" fill-opacity="0" pointer-events="all"/>
+        <a href="#new-york" transform="translate(10,282)" aria-label="New York — see my work there">
+          <rect x="-6" y="-10" width="192" height="156" fill="#fff" fill-opacity="0" pointer-events="all"/>
           <path class="path" d="M0,100 L0,80 L6,80 L7,70 L13,70 L14,78 L20,78 L21,58 L27,58 L28,48 L32,48 L33,38 L39,64 L43,64 L44,46 L49,46 L50,28 L53,16 L56,28 L57,46 L62,46 L63,54 L67,54 L68,42 L73,42 L74,54 L79,54 L80,40 L85,40 L86,58 L91,58 L92,48 L99,48 L100,64 L104,64 L104,100"/>
           <path class="path" d="M53,16 V4"/>
           <path class="path" d="M120,100 V56 M140,100 V52"/>
@@ -964,10 +980,10 @@
         <div class="section-rule"></div>
       </div>
       <div class="section-title">Producing</div>
-      <p class="section-intro">TV packages, segments, and investigative features. Filter by beat below.</p>
+      <p class="section-intro">TV packages, segments, and investigative features. Start with my top stories, or filter by beat.</p>
 
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all" data-target="work-grid">All</button>
+        <button class="filter-btn active" data-filter="top" data-target="work-grid">Top Stories</button>
         <button class="filter-btn" data-filter="tech" data-target="work-grid">Tech</button>
         <button class="filter-btn" data-filter="politics" data-target="work-grid">Politics</button>
         <button class="filter-btn" data-filter="health" data-target="work-grid">Health</button>
@@ -976,6 +992,7 @@
         <button class="filter-btn" data-filter="international" data-target="work-grid">International</button>
         <button class="filter-btn" data-filter="science" data-target="work-grid">Science</button>
         <button class="filter-btn" data-filter="legal" data-target="work-grid">Legal</button>
+        <button class="filter-btn" data-filter="education" data-target="work-grid">Education</button>
         <button class="filter-btn" data-filter="breaking" data-target="work-grid">Breaking News</button>
       </div>
 
@@ -1036,7 +1053,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/video/thousands-of-americans-roll-the-dice-on-travel-with-viral-mystery-vacation-trend-268347461583" target="_blank" rel="noopener" data-tags="culture">
+        <a class="work-card" href="https://www.nbcnews.com/video/thousands-of-americans-roll-the-dice-on-travel-with-viral-mystery-vacation-trend-268347461583" target="_blank" rel="noopener" data-tags="top culture" style="order:6">
           <div class="work-card-thumb"><img src="thumb-mystery-vacation.jpg" alt="A Frontier Airlines jet landing, from a report on viral $300 &lsquo;mystery vacation&rsquo; trips" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
@@ -1135,7 +1152,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/video/maha-moms-are-protesting-against-pesticides-262423109920" target="_blank" rel="noopener" data-tags="politics health">
+        <a class="work-card" href="https://www.nbcnews.com/video/maha-moms-are-protesting-against-pesticides-262423109920" target="_blank" rel="noopener" data-tags="top politics health" style="order:5">
           <div class="work-card-thumb"><img src="thumb-maha-moms.jpg" alt="A phone video of women at the Capitol beside large &lsquo;MAHA MOMS&rsquo; text, under a &lsquo;Trump&rsquo;s pesticide policy splits the MAHA movement&rsquo; banner" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Video Package</div>
@@ -1179,7 +1196,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener" data-tags="tech politics">
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener" data-tags="top tech politics" style="order:1">
           <div class="work-card-thumb"><img src="thumb-nda-data-centers.jpg" alt="A reporter interviewing two farmers at a gate, from an investigation into AI data center NDAs" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Investigative Feature</div>
@@ -1234,7 +1251,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener" data-tags="tech culture">
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/christies-ai-art-auction-draws-big-money-bids-thousands-protests-signa-rcna193722" target="_blank" rel="noopener" data-tags="top tech culture" style="order:4">
           <div class="work-card-thumb"><img src="thumb-christies-ai-art.jpg" alt="A speaker at a podium beside a screen of AI-generated pigeons at Christie's AI art auction" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
@@ -1256,7 +1273,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener" data-tags="tech culture">
+        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener" data-tags="top tech culture" style="order:3">
           <div class="work-card-thumb"><img src="thumb-traffic-camera-selfies.jpg" alt="A New York City traffic camera on an ornate building facade, from a report on a traffic-cam selfie website" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC's Top Story · Feature</div>
@@ -1267,7 +1284,7 @@
           </div>
         </a>
 
-        <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener" data-tags="tech politics">
+        <a class="work-card" href="https://www.nbcnews.com/business/consumer/right-to-repair-farmers-challenge-john-deere-control-equipment-rcna199651" target="_blank" rel="noopener" data-tags="top tech politics" style="order:2">
           <div class="work-card-thumb"><img src="thumb-john-deere.jpg" alt="A reporter interviewing a farmer beside a green John Deere combine" loading="lazy" /></div>
           <div class="work-card-body">
             <div class="work-card-outlet">NBC News · Feature</div>
@@ -1823,7 +1840,7 @@
           <div class="section-title">Natalie Kainz</div>
           <p>I'm a multimedia journalist currently working as a Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. I graduated from Yale University with honors in Political Science and am based in New York City.</p>
           <p>My reporting experience spans politics, technology, and culture — across my hometown Hong Kong and my current home in the United States. I've worked for CNN International Productions, NBC News, The South China Morning Post, and the New Haven Independent.</p>
-          <p>I was the Multimedia Managing Editor of the Yale Daily News from 2021–2022, and was a scholar of the Yale Journalism Initiative and winner of the 1912 Yale News Board Prize for reporting in 2023.</p>
+          <p>I was the Multimedia Managing Editor of the Yale Daily News from 2021–2022, a Yale Journalism Initiative Scholar, and winner of the 1912 Board Yale News Prize for excellence in reporting and writing.</p>
           <a href="#" class="resume-link">Download Resume →</a>
         </div>
         <div class="about-photo">
@@ -1841,14 +1858,14 @@
           <div class="edu-card">
             <div class="edu-years">2019 – 2023</div>
             <div class="edu-degree">B.A. Political Science</div>
-            <div class="edu-school">Yale University</div>
-            <div class="edu-notes">Scholar of the Yale Journalism Initiative and winner of the 1912 Yale News Board Prize for reporting in 2023. Member of the Yale Daily News, the Hong Kong Students' Association, The Yale International Relations Association, and The Equity Research and Innovation Center.</div>
+            <div class="edu-school">Yale University, New Haven</div>
+            <div class="edu-notes">Graduated with honors in Political Science and as a Yale Journalism Initiative Scholar. Awarded the 1912 Board Yale News Prize for general excellence in reporting and writing. Activities: The Yale Daily News, the Hong Kong Students' Association, the Yale International Relations Association, and the Equity Research and Innovation Center.</div>
           </div>
           <div class="edu-card">
-            <div class="edu-years">2017 – 2019</div>
-            <div class="edu-degree">High School Diploma (IB)</div>
+            <div class="edu-years">2013 – 2019</div>
+            <div class="edu-degree">International Baccalaureate Diploma</div>
             <div class="edu-school">King George V School, Hong Kong</div>
-            <div class="edu-notes">Student council president and winner of the Brenda Fluhr Prize for top-achieving student to attend university in the U.S. Completed the International Baccalaureate with a score of 43 out of 45.</div>
+            <div class="edu-notes">Student Council President and Honors Student. Completed the International Baccalaureate Diploma with a score of 43 out of 45.</div>
           </div>
         </div>
       </div>
@@ -1860,44 +1877,56 @@
         </div>
         <div class="experience-list">
           <div class="exp-item">
-            <div><div class="exp-dates">Jan 2026 – Present · New York</div><div class="exp-org">NBC News</div></div>
-            <div><div class="exp-role">Segment Producer — Top Story with Tom Llamas</div><div class="exp-desc">Pitches, sources, writes and edits 3–5 minute packages for Top Story. Assists with breaking news coverage.</div></div>
+            <div><div class="exp-dates">Aug 2026 – Present · New York</div><div class="exp-org">NBC News</div></div>
+            <div><div class="exp-role">Segment Producer — Top Story with Tom Llamas</div><div class="exp-desc">Writes, edits, and produces segments and packages for air, pitching across technology, politics, and agriculture. Reported and wrote a 3,000-word investigative digital article on data-center development involving 50 public records requests across 14 states over three months. Planned and field produced a shoot in rural Kentucky with a freelance cameraman and a correspondent.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">May 2024 – Dec 2025 · New York</div><div class="exp-org">NBC News</div></div>
-            <div><div class="exp-role">Production Assistant — Top Story with Tom Llamas</div><div class="exp-desc">Wrote, edited, and produced segments, packages, and short tells for Top Story.</div></div>
+            <div><div class="exp-dates">Dec 2025 – Aug 2026 · New York</div><div class="exp-org">NBC News</div></div>
+            <div><div class="exp-role">Associate Producer — Top Story with Tom Llamas</div><div class="exp-desc">Shot b-roll and field produced more than ten self-pitched stories in Nashville, Kansas City, New York City, and New Jersey. Solo-produced live shots, worked with drones, edited and wrote packages, and juggled breaking news with long-term features. One story adapted for NBC's social team drew 3.3 million views on TikTok.</div></div>
+          </div>
+          <div class="exp-item">
+            <div><div class="exp-dates">Apr 2024 – Dec 2025 · New York</div><div class="exp-org">NBC News</div></div>
+            <div><div class="exp-role">Production Assistant — Top Story with Tom Llamas</div><div class="exp-desc">Helped cover the 2024 presidential election cycle. Pitched, wrote, produced, and edited segments and packages on farming policy, technology, and consumer trends. Edited the show's open and built graphics.</div></div>
           </div>
           <div class="exp-item">
             <div><div class="exp-dates">Sep 2023 – Apr 2024 · New York</div><div class="exp-org">NBC News</div></div>
-            <div><div class="exp-role">News Associate — Digital Breaking News &amp; New York Bureau</div><div class="exp-desc">Worked as a reporter on the breaking news team covering international affairs, crime, and entertainment.</div></div>
+            <div><div class="exp-role">News Associate — Digital Breaking News Team &amp; New York Bureau</div><div class="exp-desc">Wrote three to four articles a day for the breaking news team, using LexisNexis and PACER to find sources and court records. Assisted producers on field shoots and news-gathered for the assignment desk. Covered major court cases including Trump's civil fraud trial and the E. Jean Carroll trial.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">Sep 2022 – Dec 2022 · New York</div><div class="exp-org">NBC Nightly News</div></div>
-            <div><div class="exp-role">Intern</div><div class="exp-desc">Researched stories, logged footage, and supported the control room. Assisted with social media headlines. Pitched and wrote stories for Nightly Kids.</div></div>
+            <div><div class="exp-dates">Sep 2022 – Dec 2022 · New York</div><div class="exp-org">NBC Nightly News with Lester Holt</div></div>
+            <div><div class="exp-role">Intern</div><div class="exp-desc">Researched stories, logged footage, booked guests, and field produced a shoot on pandemic learning loss. Wrote social headlines and captions. Pitched and wrote stories that aired on Nightly News: Kids Edition.</div></div>
           </div>
           <div class="exp-item">
             <div><div class="exp-dates">Jun 2022 – Aug 2022 · Atlanta</div><div class="exp-org">CNN International Productions</div></div>
-            <div><div class="exp-role">Intern</div><div class="exp-desc">Researched, pitched, planned, and produced stories, segments, and programs on business, culture, and conservation.</div></div>
+            <div><div class="exp-role">Intern</div><div class="exp-desc">Pitched stories, wrote scripts, and produced five-minute packages on culture, activism, and conservation for broadcast and online audiences. Sourced and wrote articles on art and the environment.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">Jun 2021 – Aug 2021 · New Haven</div><div class="exp-org">The New Haven Independent</div></div>
-            <div><div class="exp-role">Intern &amp; Reporter</div><div class="exp-desc">Covered local politics, court, and features in print and multimedia.</div></div>
+            <div><div class="exp-dates">May 2021 – Aug 2021 · New Haven</div><div class="exp-org">The New Haven Independent</div></div>
+            <div><div class="exp-role">Reporter</div><div class="exp-desc">Filed seven articles a week across print and multimedia, building a strong source network across New Haven. Pitched and wrote stories on local politics, community, and features.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">May 2021 – Aug 2021 · New Haven</div><div class="exp-org">AAJA</div></div>
-            <div><div class="exp-role">Documentary Fellow</div><div class="exp-desc">Created a short documentary about Hong Kong people immigrating to the USA as part of the AAJA Voices Fellowship mentorship program.</div></div>
+            <div><div class="exp-dates">May 2021 – Aug 2021 · Remote</div><div class="exp-org">Asian American Journalists Association</div></div>
+            <div><div class="exp-role">Short Documentary Fellow — Voices Fellowship</div><div class="exp-desc">Pitched, sourced, shot, and produced a short documentary about Hong Kongers immigrating to the U.S. in the wake of the protests and the national security law.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">Sep 2019 – Sep 2022 · New Haven</div><div class="exp-org">The Yale Daily News</div></div>
-            <div><div class="exp-role">Multimedia Managing Editor, Beat Reporter, Video Editor</div><div class="exp-desc">Oversaw photography, data, video, podcast, and illustrations desks. Directed video projects and trained teams. Wrote for the city desk as a beat reporter.</div></div>
+            <div><div class="exp-dates">May 2020 – Aug 2020 · Hong Kong</div><div class="exp-org">Television Broadcasts Limited</div></div>
+            <div><div class="exp-role">Reporter &amp; Intern — TVB Pearl (English News Channel)</div><div class="exp-desc">Pitched, wrote, and was the on-air reporter for packages that aired during Pearl's 7:30 p.m. news hour. Covered COVID-19, the pro-democracy protests, the National Security Law, and Legislative Council politics.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">Jun 2020 – Aug 2020 · Hong Kong</div><div class="exp-org">TVB News</div></div>
-            <div><div class="exp-role">Intern — Television Broadcasts Limited</div><div class="exp-desc">Pitched, wrote and presented stories on-air. Covered the implementation of Hong Kong's National Security Law.</div></div>
+            <div><div class="exp-dates">Sep 2021 – Sep 2022 · New Haven</div><div class="exp-org">The Yale Daily News</div></div>
+            <div><div class="exp-role">Multimedia Managing Editor</div><div class="exp-desc">Oversaw the photography, data, video, podcast, and illustrations desks and made editorial decisions for print as one of three members of editorial management. Completed an investigative series on the city's plan to build affordable housing on a public park.</div></div>
           </div>
           <div class="exp-item">
-            <div><div class="exp-dates">Aug 2018 – Nov 2020 · Hong Kong</div><div class="exp-org">South China Morning Post</div></div>
-            <div><div class="exp-role">Junior Reporter — Young Post</div><div class="exp-desc">Wrote and pitched articles, made videos, and took photos. Covered the Hong Kong protests of 2019 and 2020. Mentored younger reporters.</div></div>
+            <div><div class="exp-dates">Sep 2020 – Sep 2021 · New Haven</div><div class="exp-org">The Yale Daily News</div></div>
+            <div><div class="exp-role">Video Desk Editor</div><div class="exp-desc">Directed video projects and trained staff to plan, shoot, edit, and write packages. Produced three to four videos a week and monetized the paper's YouTube channel to help fund future projects.</div></div>
+          </div>
+          <div class="exp-item">
+            <div><div class="exp-dates">Aug 2019 – Sep 2021 · New Haven</div><div class="exp-org">The Yale Daily News</div></div>
+            <div><div class="exp-role">Beat Reporter — City Desk</div><div class="exp-desc">Wrote two to three articles a week covering Yale–New Haven relations, charities, and nonprofits. Produced photography and video to support print reporting.</div></div>
+          </div>
+          <div class="exp-item">
+            <div><div class="exp-dates">Aug 2018 – Nov 2020 · Hong Kong</div><div class="exp-org">The South China Morning Post</div></div>
+            <div><div class="exp-role">Junior Reporter — Young Post</div><div class="exp-desc">Wrote and pitched articles, shot video, and took photos for SCMP's youth website and magazine. Covered the Hong Kong protests in 2019 and 2020 and wrote a column called &ldquo;Letters from the Dorm.&rdquo;</div></div>
           </div>
         </div>
       </div>
@@ -1915,7 +1944,7 @@
           <div class="social-links">
             <a href="https://twitter.com/Nat_Kainz" class="social-link" target="_blank" rel="noopener">Twitter / X</a>
             <a href="http://instagram.com/nat.kainz" class="social-link" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://github.com/nataliekainz" class="social-link" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/natalie-kainz-88b3b7133/" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
         <div>
@@ -1939,24 +1968,28 @@
       const items = grid.querySelectorAll('[data-tags]');
       const noResults = document.getElementById(noResultsId);
 
+      const apply = (filter) => {
+        let visible = 0;
+        items.forEach(item => {
+          const tags = item.dataset.tags || '';
+          const match = filter === 'all' || tags.split(' ').includes(filter);
+          item.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+      };
+
       btns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const filter = btn.dataset.filter;
-
           btns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-
-          let visible = 0;
-          items.forEach(item => {
-            const tags = item.dataset.tags || '';
-            const match = filter === 'all' || tags.split(' ').includes(filter);
-            item.classList.toggle('hidden', !match);
-            if (match) visible++;
-          });
-
-          if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+          apply(btn.dataset.filter);
         });
       });
+
+      // apply whichever filter is active on load
+      const activeBtn = document.querySelector(`[data-target="${gridId}"].active`);
+      if (activeBtn) apply(activeBtn.dataset.filter);
     }
 
     setupFilter(null, 'work-grid', 'work-no-results');
