@@ -6,7 +6,7 @@
   <title>Natalie Kainz | Multimedia Journalist & Segment Producer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,7 +20,7 @@
       --card-bg: #fdfaf5;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -73,6 +73,7 @@
 
     /* ── HERO ── */
     #top {
+      position: relative;
       background-color: var(--cream);
       background-image:
         linear-gradient(rgba(26,23,20,0.04) 1px, transparent 1px),
@@ -118,34 +119,41 @@
     .snap::after {
       content: "";
       position: absolute;
-      top: -13px;
-      width: 76px;
-      height: 26px;
+      top: -11px;
+      width: 58px;
+      height: 22px;
       background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(213,202,177,0.55));
       border: 1px solid rgba(255,255,255,0.35);
       box-shadow: 0 1px 3px rgba(26,23,20,0.12);
     }
 
-    .snap::before { left: 12px; transform: rotate(-27deg); }
-    .snap::after  { right: 12px; transform: rotate(25deg); }
+    .snap::before { left: 10px; transform: rotate(-27deg); }
+    .snap::after  { right: 10px; transform: rotate(25deg); }
 
     .snap:nth-child(1) {
-      width: 200px;
+      width: 170px;
       transform: rotate(-6deg);
-      margin: 30px -20px 0 0;
+      margin: 62px -18px 0 0;
       z-index: 1;
     }
 
     .snap:nth-child(2) {
-      width: 234px;
-      transform: rotate(2.5deg);
+      width: 344px;
+      transform: rotate(2deg);
       z-index: 3;
     }
 
+    .snap:nth-child(2)::before,
+    .snap:nth-child(2)::after {
+      width: 92px;
+      height: 30px;
+      top: -15px;
+    }
+
     .snap:nth-child(3) {
-      width: 198px;
+      width: 170px;
       transform: rotate(7deg);
-      margin: 46px 0 0 -20px;
+      margin: 74px 0 0 -18px;
       z-index: 2;
     }
 
@@ -227,6 +235,84 @@
       font-size: 0.8rem;
       color: var(--warm-gray);
       margin-top: 6px;
+    }
+
+    /* ── CITY DOODLE ── */
+    .hero-doodle {
+      color: var(--accent);
+      max-width: 232px;
+      margin: 0 auto 52px;
+    }
+
+    .hero-doodle svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .hero-doodle .path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+
+    .hero-doodle .fillwash { fill: rgba(184, 92, 56, 0.08); }
+
+    .hero-doodle .trail {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 0.1 6.5;
+      opacity: 0.7;
+    }
+
+    .hero-doodle a { cursor: pointer; }
+
+    .hero-doodle a text {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      font-weight: 700;
+      fill: var(--warm-gray);
+      transition: fill 0.2s;
+    }
+
+    .hero-doodle a:hover text,
+    .hero-doodle a:focus-visible text { fill: var(--ink); text-decoration: underline; }
+
+    .hero-doodle a:hover .path,
+    .hero-doodle a:focus-visible .path { stroke: var(--ink); }
+
+    .hero-doodle a:focus-visible { outline: none; }
+
+    @media (min-width: 1320px) {
+      .hero-doodle {
+        position: absolute;
+        top: 150px;
+        left: calc(50% + 368px);
+        width: 228px;
+        max-width: none;
+        margin: 0;
+      }
+    }
+
+    /* ── PLACE SECTIONS ── */
+    .place-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-top: 44px;
+    }
+
+    .place-photos img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── SECTION HEADERS ── */
@@ -753,7 +839,10 @@
       .work-grid { grid-template-columns: 1fr; }
       .masonry-grid { columns: 1; }
       .hero-collage { flex-wrap: wrap; gap: 36px; padding-top: 20px; }
-      .snap:nth-child(1), .snap:nth-child(2), .snap:nth-child(3) { margin: 0; width: 224px; }
+      .snap:nth-child(1), .snap:nth-child(3) { margin: 0; width: 210px; }
+      .snap:nth-child(2) { margin: 0; width: 290px; }
+      .place-photos { grid-template-columns: repeat(2, 1fr); }
+      .hero-doodle { max-width: 190px; }
     }
   </style>
 </head>
@@ -766,6 +855,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#reporting">Reporting</a></li>
       <li><a href="#photography">Photography</a></li>
+      <li><a href="#hong-kong">Places</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -784,6 +874,49 @@
       <p class="hero-bio">Segment Producer at NBC News' <em>Top Story with Tom Llamas</em>. Reporting across international affairs, politics, culture, and technology — from New York and Hong Kong.</p>
       <a href="#work" class="hero-cta">View My Work →</a>
     </div>
+
+    <div class="hero-doodle" role="img" aria-label="A doodled path from Hong Kong to New Haven to New York, linking to my work in each city">
+      <svg viewBox="0 0 240 560" xmlns="http://www.w3.org/2000/svg">
+        <path class="trail" d="M52,104 C40,124 74,128 68,146 C62,164 28,158 34,180 C39,198 54,200 48,222"/>
+        <path class="trail" d="M50,306 C68,326 32,336 40,358 C47,378 76,374 66,396 C60,412 52,414 58,432"/>
+
+        <a href="#hong-kong" aria-label="Hong Kong — my work there">
+          <rect x="2" y="8" width="236" height="100" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="trail" d="M6,101 q8,-6 16,0 t16,0 t16,0 t16,0 t16,0 t16,0"/>
+          <path class="path" d="M10,100 V72 H22 V54 H30 l4,-8 4,8 V62 H46 V40 H56 V66 H66 V48 H80 V30 H90 V60 H100 V74 H108"/>
+          <path class="path" d="M85,30 V19 M51,40 V32"/>
+          <path class="path" d="M14,84 h6 M60,52 h4 M84,44 h4"/>
+          <text x="118" y="58">Hong Kong</text>
+          <path class="path" d="M118,66 q11,5 22,0 t22,0"/>
+        </a>
+
+        <a href="#new-haven" aria-label="New Haven — my work there">
+          <rect x="2" y="214" width="236" height="98" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="path" d="M14,300 V286"/>
+          <path class="path fillwash" d="M14,286 q-11,-1 -10,-12 q-2,-11 11,-11 q11,-4 12,7 q6,7 -3,13 q-2,7 -10,3 Z"/>
+          <path class="path fillwash" d="M40,300 V236 H60 V300"/>
+          <path class="path" d="M40,236 v-6 m6,6 v-9 m7,9 v-9 m7,9 v-6 m-9,6 v-13 m-2,0 h4"/>
+          <path class="path" d="M46,236 V300 M53,236 V300 M40,250 H60"/>
+          <path class="path fillwash" d="M66,300 V276 L76,266 L86,276 V300 Z"/>
+          <path class="path" d="M76,266 V258"/>
+          <text x="106" y="262">New Haven</text>
+          <path class="path" d="M106,270 q11,5 22,0 t22,0"/>
+        </a>
+
+        <a href="#new-york" aria-label="New York — my work there">
+          <rect x="2" y="420" width="236" height="118" fill="#fff" fill-opacity="0" pointer-events="all"/>
+          <path class="path fillwash" d="M14,506 V464 H32 V506"/>
+          <path class="path" d="M18,464 v-6 h10 v6"/>
+          <path class="path fillwash" d="M42,506 V452 H58 V440 H66 V432 H70 V440 H78 V452 H94 V506"/>
+          <path class="path" d="M74,432 V418"/>
+          <path class="path fillwash" d="M98,506 V470 H112 V506"/>
+          <path class="path" d="M46,470 h12 M46,486 h12"/>
+          <text x="120" y="474">New York</text>
+          <path class="path" d="M120,482 q10,5 20,0 t20,0"/>
+        </a>
+      </svg>
+    </div>
+
     <div class="hero-stats">
         <a href="#work" class="hero-stat-item">
           <div class="hero-stat-number">Producing</div>
@@ -1469,6 +1602,188 @@
           <div class="masonry-overlay"></div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACES: HONG KONG -->
+  <section id="hong-kong">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Places</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="section-title">Hong Kong</div>
+      <p class="section-intro">My hometown, and where I got my start. I reported and presented for TVB's English news channel, and I keep coming back to photograph the city and the movements that shape it.</p>
+
+      <div class="work-grid">
+        <a class="work-card" href="https://www.youtube.com/watch?v=NTGP-JykjqA" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">TVB Hong Kong</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">Television Broadcasts Limited · Reporting</div>
+            <div class="work-card-title">Ocean Park teams up with the HK Guide Dogs Association to breed puppies for the blind</div>
+            <div class="work-card-desc">Sourced the story, conducted interviews, wrote the script, voiced, and did the standup.</div>
+            <div class="work-card-tags"><span class="beat-tag international">International</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=ByJJKY88zVc" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">TVB Hong Kong</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">Television Broadcasts Limited · Reporting</div>
+            <div class="work-card-title">Government to test all domestic helpers living in agency boarding facilities</div>
+            <div class="work-card-desc">Sourced the story, conducted interviews, wrote the script, voiced, and did the standup.</div>
+            <div class="work-card-tags"><span class="beat-tag international">International</span><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="place-photos">
+        <img src="IMG_9708.JPG" alt="Protester holding a hand-lettered banner at a Hong Kong march" loading="lazy" />
+        <img src="IMG_9712.JPG" alt="Elderly marchers with a banner supporting Hong Kong's youth" loading="lazy" />
+        <img src="tiananmen.jpg" alt="Candlelight vigil marking June 4 at Victoria Park, Hong Kong" loading="lazy" />
+        <img src="zoelights.jpg" alt="Double-exposed portrait against neon signboards, Hong Kong" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACES: NEW HAVEN -->
+  <section id="new-haven">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Places</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="section-title">New Haven</div>
+      <p class="section-intro">Four years at Yale. I was the Yale Daily News' Multimedia Managing Editor, reported for the city desk, and produced, shot, and edited documentary videos across New Haven.</p>
+
+      <div class="work-grid">
+        <a class="work-card" href="https://youtu.be/cEveflviWh0" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Profile</div>
+            <div class="work-card-title">Wendy Hamilton's &ldquo;No Frills&rdquo; response to greed in the Elm City</div>
+            <div class="work-card-desc">Produced, shot, and edited a video profile of a former mayoral candidate. Conducted all interviews.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span><span class="beat-tag culture">Culture</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/xOqshsK2izc" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Protest</div>
+            <div class="work-card-title">Unions call for respect from Yale at a car caravan rally</div>
+            <div class="work-card-desc">Pitched, planned, and produced. Conducted all interviews, shot all footage, edited, and piloted the drone.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/Bj3HybcWxFc" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Protest</div>
+            <div class="work-card-title">New Haven students protest police violence</div>
+            <div class="work-card-desc">Pitched, planned, interviewed, shot, and edited this video on a student-led BLM protest.</div>
+            <div class="work-card-tags"><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/0WFA2O2r-8s" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Yale Daily News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">The Yale Daily News · Feature</div>
+            <div class="work-card-title">Community spirit helps local Asian stores survive the pandemic</div>
+            <div class="work-card-desc">Produced, shot, and edited this video about New Haven's Asian grocery stores. Conducted all interviews.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span><span class="beat-tag international">International</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="place-photos">
+        <img src="littlegirl.jpg" alt="Toddler walking a painted line at a New Haven street event" loading="lazy" />
+        <img src="D68D440F-D128-4933-A1CF-231DDE03D5DC.jpg" alt="Magnolia in bloom framed by a window, with a Gothic tower beyond, Yale" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACES: NEW YORK -->
+  <section id="new-york">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Places</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="section-title">New York</div>
+      <p class="section-intro">Home now. I'm a Segment Producer for NBC News' <em>Top Story with Tom Llamas</em>, based in New York, and I photograph the city between assignments.</p>
+
+      <div class="work-grid">
+        <a class="work-card" href="https://www.nbcnews.com/tech/tech-news/data-center-ai-google-amazon-nda-non-disclosure-agreement-colossus-rcna236423" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Investigative</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Investigative Feature</div>
+            <div class="work-card-title">How NDAs keep AI data center details hidden from Americans</div>
+            <div class="work-card-desc">A three-month investigation — 50 public records requests across 15 states — into how tech companies use secrecy agreements with local governments.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag politics">Politics</span></div>
+            <div class="work-card-arrow">Read Story →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/now/video/new-york-artist-creates-website-to-capture-selfies-using-traffic-cameras-217354821851" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Feature</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Feature</div>
+            <div class="work-card-title">New York artist creates a website to capture selfies using traffic cameras</div>
+            <div class="work-card-desc">Pitched, traveled to Brooklyn, lined up interviewees, camera operated, and helped write and edit. Aired across 3 NBC News Now shows.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span><span class="beat-tag culture">Culture</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/teen-wakes-from-coma-after-falling-in-ravine-and-getting-stuck-for-three-days-244845637619" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Breaking News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC's Top Story · Breaking News</div>
+            <div class="work-card-title">Teen wakes from a coma after three days stuck in a ravine</div>
+            <div class="work-card-desc">Pitched, traveled across New York, lined up interviewees, camera operated, wrote the script, and helped edit.</div>
+            <div class="work-card-tags"><span class="beat-tag breaking">Breaking News</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/humanoid-robots-cleaning-homes-for-30-an-hour-269041733517" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">Segment</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC News · Segment</div>
+            <div class="work-card-title">Humanoid robots are cleaning homes for $30 an hour</div>
+            <div class="work-card-desc">A look at humanoid robots being deployed for household cleaning work — and what it costs.</div>
+            <div class="work-card-tags"><span class="beat-tag tech">Tech</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="https://www.nbcnews.com/video/nightly-news-kids-edition-october-27-2022-151725637745" target="_blank" rel="noopener">
+          <div class="work-card-thumb"><div class="work-card-thumb-placeholder"><span class="thumb-label">NBC Nightly News</span></div></div>
+          <div class="work-card-body">
+            <div class="work-card-outlet">NBC Nightly News: Kids Edition</div>
+            <div class="work-card-title">It's the Great Pumpkin! America's heaviest pumpkin record</div>
+            <div class="work-card-desc">Interviewed the record holder, chose soundbites, sourced visuals, and wrote the script.</div>
+            <div class="work-card-tags"><span class="beat-tag culture">Culture</span></div>
+            <div class="work-card-arrow">Watch →</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="place-photos">
+        <img src="chinatownstreet.JPG" alt="Lunar New Year lion dance under paper lanterns, Chinatown, New York" loading="lazy" />
+        <img src="0F7AFA60-A15C-4E4B-BD31-CFD7B9136C43.jpg" alt="Cyclist in the bike lane below the Manhattan Bridge" loading="lazy" />
+        <img src="DSC00309.JPG" alt="Chinatown in a snowstorm, New York" loading="lazy" />
+        <img src="DSC00520.JPG" alt="Pigeons taking flight in the snow, New York" loading="lazy" />
       </div>
     </div>
   </section>
